@@ -1,0 +1,8 @@
+name = "codex-usage"
+command = "ut-codex-usage"
+summary = "Show Codex usage summaries from local Codex session files."
+runtime = "python3"
+entry = "codex_usage_range_report.py"
+default_behavior = "No arguments reports the current month."
+reads_private_data = true
+private_data_note = "Reads local Codex session logs. Output may include labels, paths, and working directories."

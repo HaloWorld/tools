@@ -216,3 +216,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# macOS
+.DS_Store
+
+# Local/private repository state
+.local/
+.codex/
+.agents/
+
+# Generated local outputs
+outputs/
+reports/
+tmp/
+
+# Local-only config or private notes
+*.local.*
+*.private.*
+*.secret.*

@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+set -eu
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+bin_dir="$repo_dir/bin"
+
+if [ ! -d "$bin_dir" ]; then
+  echo "ERROR: missing bin directory: $bin_dir" >&2
+  exit 1
+fi
+
+found=0
+for cmd in "$bin_dir"/ut-*; do
+  if [ -e "$cmd" ]; then
+    found=1
+    if [ ! -x "$cmd" ]; then
+      echo "ERROR: command is not executable: $cmd" >&2
+      exit 1
+    fi
+  fi
+done
+
+if [ "$found" -eq 0 ]; then
+  echo "ERROR: no ut-* commands found in $bin_dir" >&2
+  exit 1
+fi
+
+echo "tools is ready."
+echo
+echo "Add this to Zsh:"
+echo "  export PATH=\"$bin_dir:\$PATH\""
+echo
+echo "Or add this to Fish:"
+echo "  fish_add_path \"$bin_dir\""
+echo
+echo "Then open a new shell and type:"
+echo "  ut-<Tab>"

@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+set -eu
+
+case "${1:-}" in
+  -h|--help)
+    echo "Usage:"
+    echo "  ut-codex-usage"
+    echo "  ut-codex-usage --from YYYY-MM-DD --to YYYY-MM-DD"
+    echo "  ut-codex-usage --json"
+    echo
+    echo "Default: current month."
+    echo "Reads local Codex logs from ~/.codex unless --codex-home is provided."
+    exit 0
+    ;;
+esac
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+script="$repo_dir/tools/codex-usage/codex_usage_range_report.py"
+
+if [ "$#" -eq 0 ]; then
+  exec python3 "$script" --from "$(date +%Y-%m-01)"
+fi
+
+exec python3 "$script" "$@"
