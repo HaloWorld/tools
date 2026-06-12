@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+
+case "${1:-}" in
+  -h|--help)
+    echo "Usage:"
+    echo "  ut-repo-snapshot"
+    echo "  ut-repo-snapshot --json"
+    echo "  ut-repo-snapshot doctor"
+    echo "  ut-repo-snapshot doctor --json"
+    echo "  ut-repo-snapshot --version"
+    echo
+    echo "Shows a privacy-safe Git repository status snapshot for the current directory."
+    echo "Default output uses counts only and does not print file paths or remote URLs."
+    exit 0
+    ;;
+esac
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+binary="$repo_dir/target/release/ut-repo-snapshot"
+
+if [ ! -x "$binary" ]; then
+  echo "ERROR: missing Rust binary. Run: $repo_dir/install" >&2
+  exit 1
+fi
+
+exec "$binary" "$@"

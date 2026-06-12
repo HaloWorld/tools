@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  macos-release-check:
+    name: macOS release check
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: apps/desktop/package-lock.json
+
+      - name: Install system tools
+        run: brew install ripgrep
+
+      - name: Install desktop dependencies
+        working-directory: apps/desktop
+        run: npm ci
+
+      - name: Test Rust workspace
+        working-directory: apps/desktop
+        run: npm run check:rust
+
+      - name: Build local release
+        working-directory: apps/desktop
+        run: npm run release:local
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: universal-tools-local-release
+          path: target/release/distribution/
+          if-no-files-found: error

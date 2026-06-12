@@ -1,0 +1,47 @@
+{
+  "name": "ut-desktop",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 1420",
+    "build": "tsc && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 1420",
+    "tauri": "tauri",
+    "build:app": "tauri build --bundles app",
+    "embed:cli": "scripts/embed-cli-tools.sh",
+    "sign:app": "codesign --force --deep --sign - \"../../target/release/bundle/macos/Universal Tools.app\"",
+    "verify:app": "codesign --verify --deep --strict --verbose=2 \"../../target/release/bundle/macos/Universal Tools.app\"",
+    "check:app": "scripts/check-macos-release.sh",
+    "check:metadata": "node scripts/check-release-metadata.mjs",
+    "check:ui": "node scripts/check-ui-contract.mjs",
+    "check:workspaces": "node scripts/check-workspaces.mjs",
+    "check:a11y": "node scripts/check-accessibility.mjs",
+    "check:rust": "cd ../.. && cargo test --workspace",
+    "check:cli": "cd ../.. && scripts/check-cli-tools.sh",
+    "check:artifacts": "node scripts/check-release-artifacts.mjs",
+    "check:install": "scripts/check-local-install.sh",
+    "check:public-prereqs": "scripts/check-public-release-prereqs.sh",
+    "check:privacy": "cd ../.. && scripts/privacy-scan.sh",
+    "install:local": "scripts/install-local-app.sh",
+    "package:app": "scripts/package-macos-release.sh",
+    "package:cask": "node scripts/write-homebrew-cask.mjs",
+    "package:notes": "node scripts/write-release-notes.mjs",
+    "release:local": "npm run check:rust && npm run build:app && npm run check:ui && UT_REQUIRE_DIST=1 npm run check:workspaces && npm run check:a11y && npm run check:cli && npm run embed:cli && npm run sign:app && npm run verify:app && npm run check:app && npm run check:metadata && npm run package:app && npm run package:cask && npm run package:notes && npm run check:artifacts && npm run check:install && npm run check:privacy",
+    "release:public": "npm run check:public-prereqs && npm run check:rust && npm run build:app && npm run check:ui && UT_REQUIRE_DIST=1 npm run check:workspaces && npm run check:a11y && npm run check:cli && npm run embed:cli && npm run check:metadata && scripts/release-macos-public.sh"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.0.0",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0"
+  }
+}

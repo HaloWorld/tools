@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-09T16:37:18Z",
+  "title": "Design System: Universal Tools",
+  "extensions": {
+    "colorMeta": {
+      "app-bg": {
+        "role": "neutral",
+        "displayName": "Workbench Black",
+        "canonical": "#070806",
+        "tonalRamp": ["#030403", "#070806", "#0d0e0b", "#11120f", "#181912", "#302a16", "#847d67", "#f4f0dd"]
+      },
+      "main-bg": {
+        "role": "neutral",
+        "displayName": "Main Black",
+        "canonical": "#11120f",
+        "tonalRamp": ["#030403", "#070806", "#0d0e0b", "#11120f", "#181912", "#302a16", "#847d67", "#f4f0dd"]
+      },
+      "panel-bg": {
+        "role": "neutral",
+        "displayName": "Panel Black",
+        "canonical": "#181912",
+        "tonalRamp": ["#030403", "#070806", "#11120f", "#181912", "#292617", "#302a16", "#b8b29e", "#fff8df"]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Workbench Text",
+        "canonical": "#f4f0dd",
+        "tonalRamp": ["#302a16", "#847d67", "#9f9782", "#b8b29e", "#ddd6bd", "#f4f0dd", "#fff8df", "#ffffff"]
+      },
+      "amber": {
+        "role": "primary",
+        "displayName": "Command Amber",
+        "canonical": "#f8bd1c",
+        "tonalRamp": ["#231700", "#493000", "#7a5100", "#a87300", "#d99700", "#f8bd1c", "#ffd257", "#fff0b5"]
+      },
+      "teal": {
+        "role": "secondary",
+        "displayName": "Diagnostic Teal",
+        "canonical": "#7cc7c1",
+        "tonalRamp": ["#09201f", "#143b39", "#235d59", "#3b837d", "#5aa9a3", "#7cc7c1", "#b7e3df", "#eefaf8"]
+      },
+      "error": {
+        "role": "tertiary",
+        "displayName": "Error Clay",
+        "canonical": "#ff9a86",
+        "tonalRamp": ["#2a0905", "#4a130d", "#72271e", "#a64535", "#d96c5c", "#ff9a86", "#ffc8bc", "#fff0ec"]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Selected tool title."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Panel titles and nav item labels."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Compact interface text and row labels."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Status labels, field labels, and table headers."
+      },
+      "value": {
+        "displayName": "Value",
+        "purpose": "Metric values and summary totals."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "state-fast",
+        "value": "160ms ease-out",
+        "purpose": "Hover, active, and focus feedback."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "single-column",
+        "value": "1180px"
+      },
+      {
+        "name": "rail-stack",
+        "value": "940px"
+      },
+      {
+        "name": "compact",
+        "value": "680px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The amber command button for refreshing or running a selected tool.",
+      "html": "<button class=\"ds-button-primary\">Refresh report</button>",
+      "css": ".ds-button-primary { height: 38px; padding: 0 14px; border: 0; border-radius: 8px; color: #111008; background: #f8bd1c; font: 800 14px/1.45 Inter, ui-sans-serif, system-ui, sans-serif; cursor: pointer; } .ds-button-primary:hover { background: #ffd257; } .ds-button-primary:focus-visible { outline: 3px solid #f8bd1c; outline-offset: 2px; }"
+    },
+    {
+      "name": "Active Tool Navigation",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "The active rail row that shows which tool owns the workspace.",
+      "html": "<button class=\"ds-nav-active\"><span><strong>Codex Usage</strong><small>Tokens, cost, cache</small></span></button>",
+      "css": ".ds-nav-active { display: inline-flex; align-items: center; width: 100%; min-height: 54px; padding: 8px 10px; border: 0; border-radius: 8px; color: #f8bd1c; background: #1b180d; text-align: left; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-nav-active span { display: grid; gap: 3px; } .ds-nav-active strong { font-size: 14px; } .ds-nav-active small { color: #b8b29e; font-size: 12px; }"
+    },
+    {
+      "name": "Tool Library Summary",
+      "kind": "nav",
+      "refersTo": "panel",
+      "description": "A compact rail summary that makes Universal Tools visible before the selected workspace.",
+      "html": "<section class=\"ds-library-summary\"><span>Tool library</span><strong>1 ready, 2 planned</strong><dl><div><dt>Prefix</dt><dd>ut-</dd></div><div><dt>Surface</dt><dd>Desktop app</dd></div></dl></section>",
+      "css": ".ds-library-summary { display: grid; gap: 12px; padding: 12px; border: 1px solid #292617; border-radius: 8px; color: #f4f0dd; background: #11120d; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-library-summary span, .ds-library-summary dt { color: #b8b29e; font-size: 12px; font-weight: 700; } .ds-library-summary strong { font-size: 14px; } .ds-library-summary dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; overflow: hidden; margin: 0; border: 1px solid #2a2617; border-radius: 7px; background: #2a2617; } .ds-library-summary div { padding: 9px; background: #0d0e0b; } .ds-library-summary dd { margin: 0; color: #f8bd1c; font-size: 13px; font-weight: 800; }"
+    },
+    {
+      "name": "Tool Library Workspace",
+      "kind": "custom",
+      "refersTo": "panel",
+      "description": "The inventory workspace for ready and planned Universal Tools utilities. Each ready tool opens its declared workspace route.",
+      "html": "<section class=\"ds-tool-library\"><article><strong>Codex Usage</strong><code>ut-codex-usage</code><button>Open workspace</button></article></section>",
+      "css": ".ds-tool-library { display: grid; gap: 1px; overflow: hidden; border: 1px solid #292617; border-radius: 8px; background: #292617; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-tool-library article { display: grid; grid-template-columns: minmax(0, 1fr) 148px auto; gap: 12px; align-items: center; padding: 13px 14px; color: #f4f0dd; background: #181912; } .ds-tool-library code { color: #f8bd1c; font-family: inherit; font-weight: 800; } .ds-tool-library button { min-height: 34px; padding: 0 12px; border: 1px solid #4a3b13; border-radius: 8px; color: #f8bd1c; background: #151307; font-weight: 800; }"
+    },
+    {
+      "name": "Release Profile",
+      "kind": "custom",
+      "refersTo": "panel",
+      "description": "A compact Universal Tools identity panel with version, bundle ID, command prefix, and local-data posture.",
+      "html": "<section class=\"ds-release-profile\"><p><span>Version</span><strong>0.1.0</strong></p><p><span>Bundle ID</span><strong>dev.uttools.desktop</strong></p></section>",
+      "css": ".ds-release-profile { display: grid; gap: 12px; color: #f4f0dd; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-release-profile p { display: flex; justify-content: space-between; gap: 12px; margin: 0; padding-bottom: 10px; border-bottom: 1px solid #292617; } .ds-release-profile span { color: #b8b29e; font-size: 13px; } .ds-release-profile strong { overflow: hidden; max-width: 58%; color: #f4f0dd; font-size: 13px; text-align: right; text-overflow: ellipsis; white-space: nowrap; }"
+    },
+    {
+      "name": "Metric Segment",
+      "kind": "card",
+      "refersTo": "metric",
+      "description": "A flat segmented metric cell for tokens, cost, cache, and coverage.",
+      "html": "<article class=\"ds-metric\"><span>Lifetime tokens</span><strong>18.4B</strong><small>18,400,000,000</small></article>",
+      "css": ".ds-metric { min-height: 112px; padding: 16px; border: 1px solid #302a16; border-radius: 10px; color: #f4f0dd; background: #181912; font-family: Inter, ui-sans-serif, system-ui, sans-serif; } .ds-metric span, .ds-metric small { color: #b8b29e; } .ds-metric strong { display: block; margin: 12px 0 7px; color: #f8bd1c; font-size: 27px; line-height: 1; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Session Table Row",
+      "kind": "custom",
+      "refersTo": "panel",
+      "description": "Dense top-session row with tabular numbers and amber selected state.",
+      "html": "<table class=\"ds-table\"><tbody><tr class=\"selected\"><td>Refactor usage reporting</td><td>1.4B</td><td>1.3B</td><td>$688</td></tr></tbody></table>",
+      "css": ".ds-table { width: 100%; border-collapse: collapse; color: #f4f0dd; background: #181912; font: 400 13px/1.45 Inter, ui-sans-serif, system-ui, sans-serif; font-variant-numeric: tabular-nums; } .ds-table td { padding: 11px 10px; border-bottom: 1px solid #292617; text-align: right; } .ds-table td:first-child { text-align: left; } .ds-table .selected td { background: #1e1a0d; } .ds-table .selected td:first-child { color: #f8bd1c; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Direct Workbench",
+    "overview": "Universal Tools is a local desktop toolbox first. Codex Usage is the first ready tool inside that toolbox, not the product boundary. The app should open like a focused workbench: dark, direct, compact, and ready for repeated use. The default library view does not scan tool-specific private data.",
+    "keyCharacteristics": [
+      "Black workbench shell with amber primary action and active state.",
+      "Universal Tools owns the app shell, tool library, and command prefix.",
+      "Tool Library is the default entry, not a secondary page.",
+      "Tool-specific local data is read only after entering or refreshing that tool.",
+      "Codex Usage lives as the first ready workspace inside that shell.",
+      "Dense information layout with a wide analysis column and a narrow inspector.",
+      "Direct tabular and bar-based data display. No donut charts.",
+      "Small radii, crisp dividers, and flat panels instead of decorative shadows."
+    ],
+    "rules": [
+      {
+        "name": "The Tool Shell Rule",
+        "body": "The rail and breadcrumb must keep Universal Tools visible even when one tool owns the main workspace.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tool Library Rule",
+        "body": "The first visible app concept is the Universal Tools library: ready tools, planned slots, and the ut- command prefix.",
+        "section": "colors"
+      },
+      {
+        "name": "The Default Library Rule",
+        "body": "Opening the app without a deep link shows Tool Library. Ready tools are entered from there.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lazy Local Data Rule",
+        "body": "The default library view does not scan a tool-specific private source. Data access starts only when a tool workspace is opened or refreshed.",
+        "section": "colors"
+      },
+      {
+        "name": "The Amber Rarity Rule",
+        "body": "Amber is primary action, active selection, and key state. Do not use it as decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Donut Rule",
+        "body": "Usage and model data use bars, rows, and tables. Donut charts are prohibited for this surface.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do keep Universal Tools visible as the app shell.",
+      "Do make the tool library visible before the selected tool's report.",
+      "Do open the app at Tool Library unless a specific workspace is deep linked.",
+      "Do defer private local scans until the selected tool workspace needs them.",
+      "Do make Codex Usage feel like the selected tool, not the whole product.",
+      "Do add new ready tools by declaring their command, surface, and workspace route together.",
+      "Do expose app identity in Universal Tools terms: version, bundle ID, command prefix, and library counts.",
+      "Do use Command Amber for primary action, active state, focus, and selected data only.",
+      "Do keep usage displays direct: bars, rows, tables, and clear status text.",
+      "Do preserve readable contrast for all small text.",
+      "Do keep planned and disabled entries readable instead of fading the entire control."
+    ],
+    "donts": [
+      "Don't create a marketing page.",
+      "Don't make Codex Usage look like the only future purpose of the app.",
+      "Don't name product-level concepts after the current tool.",
+      "Don't use donut charts on this surface.",
+      "Don't use decorative SaaS dashboards.",
+      "Don't use loud terminal cosplay.",
+      "Don't use flashy gradients.",
+      "Don't use glassmorphism.",
+      "Don't create privacy-unclear cloud dashboard language or visuals.",
+      "Don't use generic AI templates.",
+      "Don't expose too many choices before the default path has worked.",
+      "Don't add colored side-stripe borders, gradient text, nested cards, or wide decorative shadows."
+    ]
+  }
+}

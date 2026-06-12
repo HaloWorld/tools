@@ -1,0 +1,7 @@
+name = "Command Index"
+command = "ut-list"
+summary = "Lists installed Universal Tools commands and checks install completeness."
+entry = "crates/ut-list"
+reads_private_data = false
+status = "ready"
+surface = "CLI + Desktop"

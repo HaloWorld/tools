@@ -1,0 +1,5487 @@
+:root {
+  color: #f4f0dd;
+  background: #070806;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --surface-base: #070806;
+  --surface-main: #11120f;
+  --surface-rail: rgb(12 13 11 / 64%);
+  --surface-panel: rgb(25 27 24 / 54%);
+  --surface-panel-strong: rgb(27 29 25 / 72%);
+  --surface-muted: rgb(18 20 17 / 46%);
+  --surface-muted-strong: rgb(23 25 21 / 70%);
+  --surface-control: rgb(17 18 13 / 58%);
+  --surface-control-strong: rgb(19 20 15 / 78%);
+  --surface-error: rgb(29 16 13 / 86%);
+  --glass-border: rgb(255 248 223 / 18%);
+  --glass-border-strong: rgb(255 248 223 / 34%);
+  --glass-highlight: rgb(255 248 223 / 20%);
+  --glass-highlight-strong: rgb(255 248 223 / 34%);
+  --glass-lowlight: rgb(0 0 0 / 26%);
+  --glass-blur: blur(28px) saturate(1.42) contrast(1.04) brightness(1.02);
+  --glass-blur-strong: blur(42px) saturate(1.62) contrast(1.08) brightness(1.03);
+  --glass-edge: linear-gradient(135deg, rgb(255 248 223 / 58%) 0%, rgb(255 210 87 / 18%) 30%, rgb(124 199 193 / 12%) 66%, rgb(255 248 223 / 42%) 100%);
+  --glass-edge-strong: linear-gradient(135deg, rgb(255 248 223 / 76%) 0%, rgb(255 210 87 / 30%) 32%, rgb(124 199 193 / 18%) 68%, rgb(255 248 223 / 56%) 100%);
+  --glass-caustic: linear-gradient(145deg, rgb(255 248 223 / 14%), transparent 28% 66%, rgb(124 199 193 / 5%)), linear-gradient(315deg, rgb(248 189 28 / 7%), transparent 48%);
+  --glass-caustic-strong: linear-gradient(145deg, rgb(255 248 223 / 20%), transparent 30% 66%, rgb(124 199 193 / 7%)), linear-gradient(315deg, rgb(255 210 87 / 10%), transparent 48%);
+  --glass-lens: linear-gradient(180deg, rgb(255 255 255 / 13%) 0%, transparent 34%, rgb(0 0 0 / 8%) 100%), linear-gradient(105deg, transparent 0 60%, rgb(124 199 193 / 5%) 75%, transparent 90%);
+  --glass-lens-strong: linear-gradient(180deg, rgb(255 255 255 / 18%) 0%, transparent 34%, rgb(0 0 0 / 10%) 100%), linear-gradient(105deg, transparent 0 58%, rgb(124 199 193 / 8%) 75%, transparent 90%);
+  --glass-shadow: inset 0 1px 0 var(--glass-highlight), inset 0 -1px 0 rgb(0 0 0 / 24%), inset 0 0 0 1px rgb(255 248 223 / 4%), 0 8px 12px rgb(0 0 0 / 22%);
+  --glass-shadow-strong: inset 0 1px 0 var(--glass-highlight-strong), inset 0 -1px 0 rgb(0 0 0 / 28%), inset 0 0 0 1px rgb(255 248 223 / 6%), 0 16px 30px rgb(0 0 0 / 34%);
+  --glass-contact-shadow: 0 18px 34px rgb(0 0 0 / 30%);
+  --glass-press-shadow: inset 0 2px 4px rgb(0 0 0 / 30%), inset 0 -1px 0 rgb(255 248 223 / 18%), inset 0 0 0 1px rgb(255 248 223 / 8%), 0 4px 8px rgb(0 0 0 / 22%);
+  --text-primary: #f4f0dd;
+  --text-strong: #fff8df;
+  --text-muted: #b8b29e;
+  --text-muted-low: #847d67;
+  --accent: #f8bd1c;
+  --accent-hover: #ffd257;
+  --accent-soft: rgb(248 189 28 / 13%);
+  --accent-glow: rgb(248 189 28 / 28%);
+  --teal: #7cc7c1;
+  --teal-glow: rgb(124 199 193 / 34%);
+  --error: #ff9a86;
+  --error-bg: #1d100d;
+  --motion-fast: 120ms;
+  --motion-base: 180ms;
+  --motion-slow: 240ms;
+  --motion-glass: 340ms;
+  --motion-glass-slow: 520ms;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --surface-base: #f7f5ef;
+  --surface-main: #efede6;
+  --surface-rail: rgb(255 253 246 / 76%);
+  --surface-panel: rgb(255 253 246 / 74%);
+  --surface-panel-strong: rgb(255 253 246 / 90%);
+  --surface-muted: rgb(242 238 226 / 74%);
+  --surface-muted-strong: rgb(242 238 226 / 90%);
+  --surface-control: rgb(255 250 236 / 76%);
+  --surface-control-strong: rgb(255 250 236 / 92%);
+  --surface-error: rgb(255 235 229 / 90%);
+  --glass-border: rgb(121 88 8 / 18%);
+  --glass-border-strong: rgb(121 88 8 / 34%);
+  --glass-highlight: rgb(255 255 255 / 58%);
+  --glass-highlight-strong: rgb(255 255 255 / 72%);
+  --glass-lowlight: rgb(60 42 0 / 10%);
+  --glass-edge: linear-gradient(135deg, rgb(255 255 255 / 86%) 0%, rgb(248 189 28 / 24%) 28%, rgb(124 199 193 / 20%) 67%, rgb(255 255 255 / 76%) 100%);
+  --glass-edge-strong: linear-gradient(135deg, rgb(255 255 255 / 94%) 0%, rgb(248 189 28 / 34%) 28%, rgb(124 199 193 / 30%) 68%, rgb(255 255 255 / 84%) 100%);
+  --glass-caustic: linear-gradient(145deg, rgb(255 255 255 / 34%), transparent 30% 66%, rgb(124 199 193 / 9%)), linear-gradient(315deg, rgb(248 189 28 / 8%), transparent 42%);
+  --glass-caustic-strong: linear-gradient(145deg, rgb(255 255 255 / 46%), transparent 30% 64%, rgb(124 199 193 / 13%)), linear-gradient(315deg, rgb(248 189 28 / 12%), transparent 44%);
+  --glass-lens: linear-gradient(180deg, rgb(255 255 255 / 46%) 0%, transparent 34%, rgb(60 42 0 / 8%) 100%), linear-gradient(105deg, transparent 0 54%, rgb(124 199 193 / 8%) 72%, transparent 88%);
+  --glass-lens-strong: linear-gradient(180deg, rgb(255 255 255 / 62%) 0%, transparent 34%, rgb(60 42 0 / 10%) 100%), linear-gradient(105deg, transparent 0 52%, rgb(124 199 193 / 12%) 72%, transparent 88%);
+  --glass-contact-shadow: 0 10px 14px rgb(60 42 0 / 12%);
+  --glass-press-shadow: inset 0 2px 3px rgb(60 42 0 / 12%), inset 0 -1px 0 rgb(255 255 255 / 42%), 0 5px 8px rgb(60 42 0 / 10%);
+  --text-primary: #1c1a13;
+  --text-strong: #0d0c08;
+  --text-muted: #5f5845;
+  --text-muted-low: #746b53;
+  --accent-soft: rgb(248 189 28 / 19%);
+  --error-bg: #fff0eb;
+}
+
+.appShell[data-theme="light"] {
+  color-scheme: light;
+  --surface-base: #f7f5ef;
+  --surface-main: #efede6;
+  --surface-rail: rgb(255 253 246 / 76%);
+  --surface-panel: rgb(255 253 246 / 74%);
+  --surface-panel-strong: rgb(255 253 246 / 90%);
+  --surface-muted: rgb(242 238 226 / 74%);
+  --surface-muted-strong: rgb(242 238 226 / 90%);
+  --surface-control: rgb(255 250 236 / 76%);
+  --surface-control-strong: rgb(255 250 236 / 92%);
+  --surface-error: rgb(255 235 229 / 90%);
+  --glass-border: rgb(121 88 8 / 18%);
+  --glass-border-strong: rgb(121 88 8 / 34%);
+  --glass-highlight: rgb(255 255 255 / 58%);
+  --glass-highlight-strong: rgb(255 255 255 / 72%);
+  --glass-lowlight: rgb(60 42 0 / 10%);
+  --glass-edge: linear-gradient(135deg, rgb(255 255 255 / 86%) 0%, rgb(248 189 28 / 24%) 28%, rgb(124 199 193 / 20%) 67%, rgb(255 255 255 / 76%) 100%);
+  --glass-edge-strong: linear-gradient(135deg, rgb(255 255 255 / 94%) 0%, rgb(248 189 28 / 34%) 28%, rgb(124 199 193 / 30%) 68%, rgb(255 255 255 / 84%) 100%);
+  --glass-caustic: linear-gradient(145deg, rgb(255 255 255 / 34%), transparent 30% 66%, rgb(124 199 193 / 9%)), linear-gradient(315deg, rgb(248 189 28 / 8%), transparent 42%);
+  --glass-caustic-strong: linear-gradient(145deg, rgb(255 255 255 / 46%), transparent 30% 64%, rgb(124 199 193 / 13%)), linear-gradient(315deg, rgb(248 189 28 / 12%), transparent 44%);
+  --glass-lens: linear-gradient(180deg, rgb(255 255 255 / 46%) 0%, transparent 34%, rgb(60 42 0 / 8%) 100%), linear-gradient(105deg, transparent 0 54%, rgb(124 199 193 / 8%) 72%, transparent 88%);
+  --glass-lens-strong: linear-gradient(180deg, rgb(255 255 255 / 62%) 0%, transparent 34%, rgb(60 42 0 / 10%) 100%), linear-gradient(105deg, transparent 0 52%, rgb(124 199 193 / 12%) 72%, transparent 88%);
+  --glass-contact-shadow: 0 10px 14px rgb(60 42 0 / 12%);
+  --glass-press-shadow: inset 0 2px 3px rgb(60 42 0 / 12%), inset 0 -1px 0 rgb(255 255 255 / 42%), 0 5px 8px rgb(60 42 0 / 10%);
+  --text-primary: #1c1a13;
+  --text-strong: #0d0c08;
+  --text-muted: #5f5845;
+  --text-muted-low: #746b53;
+  --accent-soft: rgb(248 189 28 / 19%);
+  --error-bg: #fff0eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--surface-base);
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+  min-height: 100vh;
+  background: var(--surface-base);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 3px solid #f8bd1c;
+  outline-offset: 2px;
+}
+
+.appShell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 282px minmax(0, 1fr);
+  min-height: 100vh;
+  overflow: hidden;
+  color: var(--text-primary);
+  background:
+    linear-gradient(132deg, rgb(248 189 28 / 18%) 0%, transparent 30%),
+    linear-gradient(29deg, transparent 36%, rgb(124 199 193 / 12%) 55%, transparent 76%),
+    linear-gradient(156deg, transparent 0 18%, rgb(255 248 223 / 8%) 29%, transparent 43% 100%),
+    linear-gradient(180deg, rgb(255 248 223 / 5%) 0%, transparent 18%),
+    var(--surface-base);
+}
+
+.appShell::before {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(112deg, transparent 0 16%, rgb(255 248 223 / 12%) 27%, transparent 43% 100%),
+    linear-gradient(158deg, transparent 0 42%, rgb(248 189 28 / 16%) 53%, transparent 69% 100%),
+    linear-gradient(34deg, transparent 0 58%, rgb(124 199 193 / 10%) 66%, transparent 80% 100%);
+  filter: blur(20px) saturate(1.2);
+  opacity: 0.94;
+}
+
+.appShell::after {
+  position: fixed;
+  inset: -18% -12%;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(104deg, transparent 0 34%, rgb(255 210 87 / 22%) 43%, transparent 53% 100%),
+    linear-gradient(24deg, transparent 0 50%, rgb(124 199 193 / 14%) 61%, transparent 72% 100%),
+    linear-gradient(172deg, transparent 0 54%, rgb(255 248 223 / 12%) 64%, transparent 74% 100%),
+    linear-gradient(48deg, transparent 0 22%, rgb(248 189 28 / 10%) 34%, transparent 46% 100%);
+  filter: blur(30px) saturate(1.36);
+  opacity: 0.92;
+}
+
+.toolRail,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.skipLink {
+  position: fixed;
+  z-index: 10;
+  top: 12px;
+  left: 12px;
+  transform: translateY(-64px);
+  padding: 8px 12px;
+  color: #111008;
+  border-radius: 8px;
+  background: #f8bd1c;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+}
+
+.toolRail {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 20px 14px;
+  border-right: 1px solid var(--glass-border);
+  background:
+    var(--glass-lens),
+    var(--surface-rail);
+  box-shadow:
+    inset -1px 0 0 rgb(255 248 223 / 14%),
+    inset 1px 0 0 rgb(255 248 223 / 8%),
+    8px 0 14px rgb(0 0 0 / 20%);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  backdrop-filter: var(--glass-blur-strong);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px 22px;
+}
+
+.brandMark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+  color: #0d0e0b;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffe08a 0%, #f8bd1c 48%, #d79508 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 58%), inset 0 -1px 0 rgb(0 0 0 / 18%);
+}
+
+.brandMark::after {
+  position: absolute;
+  inset: 2px 5px auto;
+  height: 9px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 34%);
+  content: "";
+}
+
+.brand div:last-child,
+.navItem span {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.brand strong {
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.brand span,
+.navItem small,
+.suiteCard,
+.railNote,
+.railFooter span,
+.railFooter small,
+.breadcrumb,
+.pageHeader p,
+.toolType,
+.statusItem span,
+.metric span,
+.metric small,
+.panelHead span,
+.modelRow span,
+.healthRow span,
+th,
+.trendItem span {
+  color: #b8b29e;
+}
+
+.railLabel {
+  margin: 10px 8px 8px;
+  color: #847d67;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+nav {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.suiteCard {
+  display: grid;
+  gap: 12px;
+  margin: 0 4px 18px;
+  padding: 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 9%), transparent 38%),
+    var(--surface-panel);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.suiteCard > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.suiteCard span,
+.suiteCard dt {
+  color: #b8b29e;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.suiteCard strong {
+  color: #f4f0dd;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.suiteCard dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: 7px;
+  background: rgb(248 189 28 / 10%);
+}
+
+.suiteCard dl div {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 9px;
+  background: rgb(13 14 11 / 66%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.suiteCard dd {
+  overflow: hidden;
+  margin: 0;
+  color: #f8bd1c;
+  font-size: 13px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navItem,
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  cursor: pointer;
+}
+
+.navItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) auto;
+  width: 100%;
+  min-height: 54px;
+  gap: 10px;
+  padding: 8px 10px;
+  color: #ddd6bd;
+  text-align: left;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.navItem:hover:not(:disabled) {
+  color: #f4f0dd;
+  border-color: var(--glass-border);
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 8%), transparent 42%),
+    rgb(23 23 15 / 70%);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 10%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.28);
+  backdrop-filter: blur(18px) saturate(1.28);
+}
+
+.navItem:focus-visible {
+  outline: 3px solid #f8bd1c;
+  outline-offset: 2px;
+  border-color: var(--glass-border-strong);
+}
+
+.navItem.active {
+  color: #f8bd1c;
+  border-color: var(--glass-border-strong);
+  background:
+    linear-gradient(145deg, rgb(255 210 87 / 16%), transparent 45%),
+    var(--accent-soft);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 16%), inset 0 -1px 0 rgb(0 0 0 / 16%);
+  -webkit-backdrop-filter: blur(20px) saturate(1.38);
+  backdrop-filter: blur(20px) saturate(1.38);
+}
+
+.navItem strong {
+  color: inherit;
+  font-size: 14px;
+  line-height: 1.15;
+}
+
+.navItem small {
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.navItem .navCommand {
+  color: #8f886f;
+  font-variant-numeric: tabular-nums;
+}
+
+.navItem em {
+  align-self: start;
+  padding: 3px 6px;
+  color: #cfc5a8;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  background: var(--surface-control);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  backdrop-filter: blur(14px) saturate(1.25);
+}
+
+.navItem.active em {
+  color: #111008;
+  border-color: #f8bd1c;
+  background: #f8bd1c;
+}
+
+.navItem:disabled {
+  cursor: default;
+  color: #9f9782;
+}
+
+.navItem:disabled strong {
+  color: #b8b29e;
+}
+
+.navItem:disabled small,
+.navItem:disabled .navCommand {
+  color: #8f886f;
+}
+
+.navItem:disabled em {
+  color: #9f9782;
+  border-color: #2f2a19;
+  background: rgb(13 14 11 / 64%);
+}
+
+.railNote {
+  display: flex;
+  gap: 10px;
+  margin: 0 6px;
+  padding: 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background: var(--surface-panel);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.railNote svg {
+  flex: 0 0 auto;
+  color: #f8bd1c;
+  margin-top: 2px;
+}
+
+.railFooter {
+  display: grid;
+  gap: 5px;
+  margin-top: auto;
+  padding: 14px 10px 4px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.railFooter strong {
+  font-size: 15px;
+}
+
+.railFooter small {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+main {
+  min-width: 0;
+  padding: 24px;
+  overflow: auto;
+  background: rgb(17 18 15 / 56%);
+  -webkit-backdrop-filter: blur(12px) saturate(1.08);
+  backdrop-filter: blur(12px) saturate(1.08);
+}
+
+.topBar,
+.pageHeader,
+.statusStrip,
+.workspaceGrid {
+  width: min(100%, 1320px);
+  margin: 0 auto;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.homeGlassDeck {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 1320px);
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 11%), transparent 31%, rgb(0 0 0 / 10%) 100%),
+    linear-gradient(118deg, transparent 0 36%, rgb(255 248 223 / 8%) 50%, transparent 66% 100%),
+    linear-gradient(52deg, transparent 0 58%, rgb(124 199 193 / 5%) 70%, transparent 84% 100%),
+    linear-gradient(rgb(22 24 21 / 50%), rgb(17 19 16 / 46%)),
+    var(--glass-edge);
+  background-clip: padding-box, padding-box, padding-box, padding-box, border-box;
+  background-origin: border-box;
+  box-shadow:
+    inset 0 1px 0 rgb(255 248 223 / 28%),
+    inset 0 -1px 0 rgb(0 0 0 / 24%),
+    0 22px 44px rgb(0 0 0 / 32%);
+  -webkit-backdrop-filter: blur(42px) saturate(1.38) contrast(1.04);
+  backdrop-filter: blur(42px) saturate(1.38) contrast(1.04);
+}
+
+.homeGlassDeck::before,
+.homeGlassDeck::after {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.homeGlassDeck::before {
+  inset: 1px;
+  border-radius: 17px;
+  background:
+    radial-gradient(circle at 18% 16%, rgb(255 248 223 / 18%), transparent 24%),
+    radial-gradient(circle at 70% 20%, rgb(124 199 193 / 8%), transparent 24%),
+    linear-gradient(180deg, rgb(255 255 255 / 10%), transparent 38%, rgb(0 0 0 / 10%) 100%);
+}
+
+.homeGlassDeck::after {
+  right: 20px;
+  bottom: 16px;
+  left: 20px;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgb(255 248 223 / 46%), transparent);
+  opacity: 0.58;
+}
+
+.homeGlassDeck > * {
+  position: relative;
+  z-index: 1;
+}
+
+.homeGlassDeck .pageHeader,
+.homeGlassDeck .statusStrip,
+.homeGlassDeck .libraryWorkspace {
+  width: auto;
+}
+
+.homeGlassDeck .pageHeader {
+  margin-bottom: 14px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.breadcrumb strong {
+  color: #f4f0dd;
+}
+
+.runBadge {
+  min-width: 76px;
+  padding: 5px 9px;
+  color: #f8bd1c;
+  border: 1px solid var(--glass-border-strong);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgb(255 248 223 / 12%), transparent 62%),
+    rgb(25 21 6 / 76%);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 12%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.32);
+  backdrop-filter: blur(18px) saturate(1.32);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.runBadge.ok {
+  color: #f8bd1c;
+}
+
+.runBadge.scan {
+  color: #ffe08a;
+}
+
+.runBadge.warn {
+  color: #ff9a86;
+  border-color: #654035;
+  background: #1b0f0c;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.toolType {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  color: #fff8df;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+h2 {
+  color: #f4f0dd;
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.pageHeader p {
+  max-width: 62ch;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.toolbar {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.toolbar label {
+  display: grid;
+  gap: 6px;
+  min-width: 176px;
+  color: #c5bea6;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.toolbar input {
+  height: 38px;
+  width: 176px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 0 11px;
+  color: #f4f0dd;
+  background:
+    linear-gradient(180deg, rgb(255 248 223 / 7%), transparent 62%),
+    var(--surface-control);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 8%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.toolbar input[aria-invalid="true"] {
+  border-color: #8b493c;
+}
+
+.toolbar input::placeholder {
+  color: #9f9782;
+}
+
+.toolbar small {
+  color: #b8b29e;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.toolbar small.fieldError {
+  color: #ff9a86;
+}
+
+.primaryButton {
+  position: relative;
+  height: 38px;
+  gap: 9px;
+  padding: 0 14px;
+  color: #111008;
+  overflow: hidden;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 34%) 0%, transparent 34%),
+    linear-gradient(180deg, #fff1ad 0%, #f8bd1c 46%, #bd7600 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 78%),
+    inset 0 -1px 0 rgb(0 0 0 / 28%),
+    inset 1px 0 0 rgb(255 255 255 / 20%),
+    inset -1px 0 0 rgb(126 78 0 / 24%),
+    0 8px 12px rgb(248 189 28 / 28%);
+  font-weight: 800;
+}
+
+.primaryButton::after,
+.secondaryButton::after {
+  position: absolute;
+  inset: 1px auto auto 8%;
+  width: 64%;
+  height: 52%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 46%) 48%, transparent);
+  content: "";
+  filter: blur(8px);
+  opacity: 0.74;
+  pointer-events: none;
+  transform: translateX(-34%) skewX(-16deg);
+}
+
+.primaryButton:hover:not(:disabled) {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 40%) 0%, transparent 34%),
+    linear-gradient(180deg, #fff7c7 0%, #ffd257 48%, #d79508 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 86%),
+    inset 0 -1px 0 rgb(0 0 0 / 30%),
+    inset 1px 0 0 rgb(255 255 255 / 26%),
+    inset -1px 0 0 rgb(126 78 0 / 28%),
+    0 10px 14px rgb(248 189 28 / 34%);
+}
+
+.primaryButton:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.primaryButton:disabled {
+  cursor: default;
+  color: #cfc5a8;
+  background: #3a321c;
+}
+
+.primaryButton:disabled::after {
+  opacity: 0.18;
+}
+
+.secondaryButton {
+  position: relative;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 12px;
+  color: #f8bd1c;
+  overflow: hidden;
+  border: 1px solid var(--glass-border-strong);
+  border-radius: 8px;
+  background:
+    var(--glass-lens),
+    var(--glass-caustic),
+    rgb(21 19 7 / 72%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight-strong),
+    inset 0 -1px 0 rgb(0 0 0 / 30%),
+    inset 0 0 0 1px rgb(255 248 223 / 5%),
+    0 6px 10px rgb(0 0 0 / 24%);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.secondaryButton:hover {
+  border-color: #f8bd1c;
+  background:
+    var(--glass-lens-strong),
+    var(--glass-caustic-strong),
+    rgb(28 25 13 / 82%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight-strong),
+    inset 0 -1px 0 rgb(0 0 0 / 32%),
+    inset 0 0 0 1px rgb(255 248 223 / 8%),
+    0 8px 12px rgb(248 189 28 / 18%);
+}
+
+.secondaryButton:active {
+  transform: translateY(1px);
+}
+
+.statusStrip {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: rgb(248 189 28 / 10%);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.statusStrip.compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.statusItem {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  min-height: 68px;
+  overflow: hidden;
+  padding: 13px 14px;
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 7%), transparent 46%),
+    var(--surface-muted);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 6%);
+  -webkit-backdrop-filter: blur(20px) saturate(1.25);
+  backdrop-filter: blur(20px) saturate(1.25);
+}
+
+.statusItem:hover {
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 11%), transparent 46%),
+    var(--surface-panel);
+}
+
+.statusItem strong {
+  overflow: hidden;
+  color: #f4f0dd;
+  font-size: 15px;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.statusItem.accent strong {
+  color: #f8bd1c;
+}
+
+.statusItem.warn strong {
+  color: #ffd257;
+}
+
+.workspaceGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(310px, 0.74fr);
+  gap: 16px;
+}
+
+.analysisColumn,
+.inspectorColumn {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.libraryWorkspace {
+  display: grid;
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(272px, 0.34fr);
+  gap: 16px;
+  width: min(100%, 1320px);
+  margin: 0 auto;
+}
+
+.libraryPanel,
+.libraryAside {
+  min-width: 0;
+}
+
+.libraryMain {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-width: 0;
+}
+
+.libraryAside {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+
+.libraryFocus {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  gap: 12px;
+  align-items: stretch;
+  margin-bottom: 12px;
+}
+
+.libraryFocus > div:first-child {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  min-width: 0;
+  overflow: hidden;
+  padding: 11px 12px;
+  border: 1px solid rgb(248 189 28 / 14%);
+  border-radius: 8px;
+  background: rgb(13 14 11 / 42%);
+}
+
+.libraryFocus strong {
+  color: #f4f0dd;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.libraryFocus span {
+  color: #b8b29e;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.libraryEssentials {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid rgb(248 189 28 / 14%);
+  border-radius: 8px;
+  background: rgb(248 189 28 / 8%);
+}
+
+.libraryEssentials div {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  min-width: 0;
+  overflow: hidden;
+  padding: 10px 11px;
+  background: rgb(13 14 11 / 46%);
+}
+
+.libraryEssentials span,
+.libraryEssentials strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.libraryEssentials span {
+  color: #8f886f;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.libraryEssentials strong {
+  color: #f4f0dd;
+  font-size: 13px;
+}
+
+.toolRows {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: rgb(248 189 28 / 14%);
+  box-shadow: var(--glass-shadow-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  backdrop-filter: var(--glass-blur-strong);
+}
+
+.toolRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px minmax(220px, 1fr) minmax(136px, 0.36fr) minmax(172px, 0.48fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 13px 14px;
+  background:
+    var(--glass-lens),
+    linear-gradient(145deg, rgb(255 248 223 / 6%), transparent 44%),
+    var(--surface-muted);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    inset 0 -1px 0 rgb(0 0 0 / 28%),
+    inset 0 0 0 1px rgb(255 248 223 / 4%);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.toolRow.ready {
+  background:
+    var(--glass-lens),
+    linear-gradient(145deg, rgb(255 248 223 / 8%), transparent 44%),
+    var(--surface-panel);
+}
+
+.toolRow.ready:hover {
+  background:
+    var(--glass-lens-strong),
+    linear-gradient(145deg, rgb(255 248 223 / 16%), transparent 44%),
+    rgb(30 30 20 / 82%);
+}
+
+.toolRow.ready:focus-within {
+  background:
+    var(--glass-lens-strong),
+    linear-gradient(145deg, rgb(255 248 223 / 16%), transparent 44%),
+    rgb(30 30 20 / 82%);
+  box-shadow:
+    inset 0 0 0 1px var(--glass-border-strong),
+    inset 0 1px 0 var(--glass-highlight-strong),
+    inset 0 -1px 0 rgb(0 0 0 / 30%);
+}
+
+.statusItem::before,
+.toolRow::before,
+.metric::before,
+.libraryFocus > div:first-child::before,
+.libraryEssentials div::before {
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 16%), transparent 34%, rgb(0 0 0 / 12%) 100%),
+    linear-gradient(112deg, transparent 0 55%, rgb(124 199 193 / 9%) 72%, transparent 88%);
+  opacity: 0.72;
+}
+
+.toolRow > svg {
+  color: #f8bd1c;
+}
+
+.toolRow strong,
+.toolRow span,
+.toolRow code {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toolRow strong {
+  display: block;
+  color: #f4f0dd;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.toolRow div span,
+.toolRow > span {
+  display: block;
+  margin-top: 3px;
+  color: #b8b29e;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.toolRow code {
+  color: #f8bd1c;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.toolRow em {
+  justify-self: end;
+  padding: 5px 8px;
+  color: #b8b29e;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  background: var(--surface-control);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  backdrop-filter: blur(14px) saturate(1.25);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.toolDetailTray {
+  display: grid;
+  grid-column: 2 / -1;
+  grid-template-rows: 0fr;
+  min-width: 0;
+  opacity: 0;
+}
+
+.toolDetailTray dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  min-height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 8px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 9%), transparent 44%),
+    var(--surface-control);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 9%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.32);
+  backdrop-filter: blur(18px) saturate(1.32);
+}
+
+.toolRow.ready:hover .toolDetailTray,
+.toolRow.ready:focus-within .toolDetailTray {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.toolRow.ready:hover .toolDetailTray dl,
+.toolRow.ready:focus-within .toolDetailTray dl {
+  padding-block: 8px;
+}
+
+.toolDetailTray dt,
+.toolDetailTray dd {
+  overflow: hidden;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toolDetailTray dt {
+  color: #847d67;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.toolDetailTray dd {
+  margin-top: 3px;
+  color: #f4f0dd;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.repoCountGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background: rgb(248 189 28 / 9%);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.repoCountGrid .metric {
+  border-radius: 0;
+}
+
+.plainList {
+  display: grid;
+  gap: 11px;
+}
+
+.plainList p {
+  color: #b8b29e;
+  font-size: 13px;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.summaryBand {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: rgb(248 189 28 / 10%);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.metric {
+  position: relative;
+  min-height: 112px;
+  overflow: hidden;
+  padding: 16px;
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 8%), transparent 42%),
+    var(--surface-panel);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 7%);
+  -webkit-backdrop-filter: blur(20px) saturate(1.25);
+  backdrop-filter: blur(20px) saturate(1.25);
+}
+
+.metric:hover {
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 13%), transparent 42%),
+    rgb(28 29 20 / 82%);
+}
+
+.metric strong {
+  display: block;
+  margin: 12px 0 7px;
+  color: #f4f0dd;
+  font-size: 27px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric.accent strong {
+  color: #f8bd1c;
+}
+
+.metric.blue strong {
+  color: #7cc7c1;
+}
+
+.metric.warn strong {
+  color: #ffd257;
+}
+
+.metric small {
+  display: block;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.panel,
+.statePanel,
+.errorPanel {
+  min-width: 0;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 9%), transparent 36%),
+    linear-gradient(315deg, rgb(124 199 193 / 5%), transparent 38%),
+    var(--surface-panel);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.panel {
+  padding: 16px;
+}
+
+.panel:hover {
+  border-color: var(--glass-border-strong);
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 12%), transparent 36%),
+    linear-gradient(315deg, rgb(124 199 193 / 7%), transparent 38%),
+    var(--surface-panel-strong);
+  box-shadow: var(--glass-shadow-strong);
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.panelHead div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.panelHead svg {
+  color: #f8bd1c;
+}
+
+.panelHead span {
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.trend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24px, 1fr));
+  align-items: end;
+  gap: 9px;
+  min-height: 218px;
+}
+
+.trendItem {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 8px;
+  min-width: 0;
+  height: 218px;
+  border-radius: 8px;
+  outline-offset: 4px;
+}
+
+.trendItem:focus {
+  outline: none;
+}
+
+.trendItem:focus-visible {
+  outline: 3px solid #f8bd1c;
+}
+
+.barTrack {
+  position: relative;
+  display: flex;
+  align-items: end;
+  width: 100%;
+  height: 184px;
+  overflow: visible;
+  border: 1px solid var(--glass-border);
+  border-radius: 7px;
+  background:
+    var(--glass-caustic),
+    rgb(15 16 12 / 68%);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 7%), inset 0 -1px 0 rgb(0 0 0 / 18%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: blur(18px) saturate(1.25);
+  transform-origin: bottom;
+}
+
+.barFill {
+  width: 100%;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #fff1ad 0%, #f8bd1c 44%, #c88405 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 44%), 0 0 12px rgb(248 189 28 / 22%);
+  transform-origin: bottom;
+}
+
+.barDetail {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 50%;
+  display: grid;
+  gap: 2px;
+  min-width: 78px;
+  padding: 6px 8px;
+  border: 1px solid var(--glass-border-strong);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 18%), transparent 45%),
+    var(--surface-control-strong);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 18%), 0 12px 14px rgb(0 0 0 / 30%);
+  -webkit-backdrop-filter: blur(22px) saturate(1.45);
+  backdrop-filter: blur(22px) saturate(1.45);
+  opacity: 0;
+  pointer-events: none;
+  text-align: center;
+  transform: translate(-50%, 6px) scale(0.96);
+}
+
+.barDetail strong {
+  color: #fff8df;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.barDetail span {
+  color: #f8bd1c;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.trend:hover .trendItem:not(:hover):not(:focus-visible) .barTrack {
+  filter: saturate(0.68) brightness(0.78) blur(0.2px);
+}
+
+.trendItem:hover .barTrack,
+.trendItem:focus-visible .barTrack {
+  border-color: var(--glass-border-strong);
+  background:
+    var(--glass-caustic-strong),
+    rgb(20 20 13 / 74%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight-strong),
+    inset 0 -1px 0 rgb(0 0 0 / 24%),
+    0 0 0 1px rgb(248 189 28 / 14%),
+    0 10px 14px rgb(248 189 28 / 10%);
+}
+
+.trendItem:hover .barFill,
+.trendItem:focus-visible .barFill {
+  background: linear-gradient(180deg, #fff7c7 0%, #ffd257 44%, #d79508 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 58%), 0 0 14px rgb(248 189 28 / 28%);
+}
+
+.trendItem:hover .barDetail,
+.trendItem:focus-visible .barDetail {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.trendItem:first-child .barDetail {
+  left: 0;
+  transform: translate(0, 6px) scale(0.96);
+}
+
+.trendItem:first-child:hover .barDetail,
+.trendItem:first-child:focus-visible .barDetail {
+  transform: translate(0, 0) scale(1);
+}
+
+.trendItem:last-child .barDetail {
+  right: 0;
+  left: auto;
+  transform: translate(0, 6px) scale(0.96);
+}
+
+.trendItem:last-child:hover .barDetail,
+.trendItem:last-child:focus-visible .barDetail {
+  transform: translate(0, 0) scale(1);
+}
+
+.trendItem span {
+  overflow: hidden;
+  font-size: 11px;
+  text-align: center;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.modelList,
+.healthList,
+.reconcileBlock {
+  display: grid;
+  gap: 12px;
+}
+
+.modelRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 112px 46px;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline-offset: 2px;
+  background: rgb(17 16 8 / 0%);
+}
+
+.modelRow:focus {
+  outline: none;
+}
+
+.modelRow:hover,
+.modelRow:focus-visible {
+  border-color: var(--glass-border);
+  background:
+    var(--glass-caustic),
+    var(--accent-soft);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    inset 0 -1px 0 rgb(0 0 0 / 18%),
+    0 6px 10px rgb(0 0 0 / 16%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.26);
+  backdrop-filter: blur(18px) saturate(1.26);
+}
+
+.modelRow:focus-visible {
+  outline: 3px solid #f8bd1c;
+}
+
+.modelList:hover .modelRow:not(:hover):not(:focus-visible) {
+  filter: saturate(0.74) brightness(0.84) blur(0.15px);
+}
+
+.modelRow strong,
+.modelRow span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modelRow strong {
+  color: #f4f0dd;
+  font-size: 13px;
+}
+
+.modelRow span {
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.modelRow em {
+  color: #f8bd1c;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 12px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.shareTrack {
+  height: 8px;
+  overflow: hidden;
+  border: 1px solid rgb(255 248 223 / 7%);
+  border-radius: 999px;
+  background:
+    var(--glass-caustic),
+    rgb(42 40 28 / 76%);
+  box-shadow: inset 0 1px 0 rgb(255 248 223 / 8%);
+  -webkit-backdrop-filter: blur(12px) saturate(1.22);
+  backdrop-filter: blur(12px) saturate(1.22);
+  transform-origin: center;
+}
+
+.shareTrack div {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7cc7c1 0%, #a8ebe4 50%, #55aca7 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 36%), 0 0 12px var(--teal-glow);
+  transform-origin: left;
+}
+
+.modelRow:hover .shareTrack div,
+.modelRow:focus-visible .shareTrack div {
+  background: linear-gradient(90deg, #9bd9d3 0%, #c7fff8 50%, #64beb8 100%);
+}
+
+.modelDetail {
+  grid-column: 1 / -1;
+  max-height: 0;
+  overflow: hidden;
+  color: #b8b29e;
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0;
+}
+
+.modelRow:hover .modelDetail,
+.modelRow:focus-visible .modelDetail {
+  max-height: 18px;
+  opacity: 1;
+}
+
+.healthRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 28px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #292617;
+}
+
+.healthRow:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.healthRow span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.healthRow span svg {
+  flex: 0 0 auto;
+  color: #f8bd1c;
+}
+
+.healthRow strong {
+  flex: 0 1 auto;
+  max-width: 58%;
+  overflow: hidden;
+  color: #f4f0dd;
+  font-size: 13px;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.tablePanel {
+  padding-bottom: 6px;
+}
+
+.tableWrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+  padding: 11px 10px;
+  border-bottom: 1px solid #292617;
+  text-align: right;
+  vertical-align: middle;
+}
+
+th {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+td {
+  color: #ebe4ca;
+  font-size: 13px;
+}
+
+td:first-child,
+th:first-child {
+  max-width: 420px;
+  text-align: left;
+}
+
+td:first-child {
+  overflow: hidden;
+  color: #f4f0dd;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.commandTable th:nth-child(2),
+.commandTable td:nth-child(2) {
+  text-align: left;
+}
+
+.commandTable th:nth-child(3),
+.commandTable td:nth-child(3),
+.commandTable th:nth-child(4),
+.commandTable td:nth-child(4) {
+  text-align: center;
+}
+
+.commandTable code {
+  color: #f8bd1c;
+  font-family: inherit;
+  font-weight: 800;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+.selectedRow td {
+  background:
+    linear-gradient(180deg, rgb(255 248 223 / 7%), transparent 62%),
+    rgb(30 26 13 / 72%);
+}
+
+tbody tr:hover td {
+  background:
+    linear-gradient(180deg, rgb(255 248 223 / 8%), transparent 62%),
+    rgb(27 26 18 / 70%);
+}
+
+tbody tr.selectedRow:hover td {
+  background:
+    linear-gradient(180deg, rgb(255 248 223 / 10%), transparent 62%),
+    rgb(36 31 15 / 78%);
+}
+
+.selectedRow td:first-child {
+  color: #f8bd1c;
+}
+
+.emptyCell {
+  color: #b8b29e;
+  text-align: left;
+}
+
+.statePanel,
+.errorPanel {
+  width: min(100%, 1320px);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.statePanel {
+  display: grid;
+  gap: 16px;
+}
+
+.statePanel > div:first-child,
+.errorPanel {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+}
+
+.statePanel svg,
+.errorPanel svg {
+  flex: 0 0 auto;
+  color: #f8bd1c;
+  margin-top: 1px;
+}
+
+.statePanel strong,
+.errorPanel strong {
+  display: block;
+  color: #f4f0dd;
+  margin-bottom: 4px;
+}
+
+.statePanel span,
+.errorPanel span {
+  color: #b8b29e;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.errorPanel {
+  margin-bottom: 16px;
+  border-color: #603a31;
+  background:
+    linear-gradient(145deg, rgb(255 154 134 / 12%), transparent 42%),
+    var(--surface-error);
+}
+
+.errorPanel svg,
+.errorPanel strong {
+  color: #ff9a86;
+}
+
+.skeletonRows {
+  display: grid;
+  gap: 8px;
+}
+
+.skeletonRows span {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1px solid rgb(255 248 223 / 5%);
+  background:
+    linear-gradient(180deg, rgb(255 248 223 / 9%), transparent 70%),
+    rgb(38 35 22 / 70%);
+  -webkit-backdrop-filter: blur(12px) saturate(1.18);
+  backdrop-filter: blur(12px) saturate(1.18);
+}
+
+.skeletonRows span:nth-child(1) {
+  width: 74%;
+}
+
+.skeletonRows span:nth-child(2) {
+  width: 52%;
+}
+
+.skeletonRows span:nth-child(3) {
+  width: 64%;
+}
+
+.inlineEmpty {
+  display: grid;
+  place-items: center;
+  min-height: 110px;
+  color: #b8b29e;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgb(255 248 223 / 8%), transparent 46%),
+    rgb(18 19 15 / 72%);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  font-size: 13px;
+}
+
+.suiteCard,
+.railNote,
+.statusStrip,
+.toolRows,
+.repoCountGrid,
+.summaryBand,
+.panel,
+.statePanel,
+.inlineEmpty {
+  position: relative;
+  isolation: isolate;
+  border-color: transparent;
+  background:
+    var(--glass-lens),
+    var(--glass-caustic),
+    linear-gradient(var(--surface-panel), var(--surface-panel)),
+    var(--glass-edge);
+  background-clip: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, border-box;
+  background-origin: border-box;
+  box-shadow:
+    var(--glass-shadow-strong),
+    0 0 0 1px rgb(255 248 223 / 5%);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  backdrop-filter: var(--glass-blur-strong);
+}
+
+.suiteCard::before,
+.railNote::before,
+.statusStrip::before,
+.toolRows::before,
+.repoCountGrid::before,
+.summaryBand::before,
+.panel::before,
+.statePanel::before,
+.inlineEmpty::before {
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 20%), transparent 36%, rgb(0 0 0 / 10%) 100%),
+    linear-gradient(110deg, transparent 0 12%, rgb(255 248 223 / 10%) 24%, transparent 42% 100%),
+    linear-gradient(290deg, transparent 0 58%, rgb(124 199 193 / 10%) 72%, transparent 88% 100%);
+  opacity: 0.78;
+}
+
+.panel:hover,
+.toolRows:hover,
+.summaryBand:hover,
+.repoCountGrid:hover {
+  background:
+    var(--glass-lens-strong),
+    var(--glass-caustic-strong),
+    linear-gradient(var(--surface-panel-strong), var(--surface-panel-strong)),
+    var(--glass-edge-strong);
+  background-clip: padding-box, padding-box, padding-box, padding-box, padding-box, padding-box, border-box;
+  box-shadow: var(--glass-shadow-strong), var(--glass-contact-shadow);
+}
+
+.statusItem,
+.toolRow,
+.metric,
+.libraryFocus > div:first-child,
+.libraryEssentials div,
+.toolDetailTray dl,
+.barTrack,
+.shareTrack,
+.toolbar input,
+.runBadge,
+.navItem em,
+.toolRow em,
+.skeletonRows span {
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight-strong),
+    inset 1px 0 0 rgb(255 248 223 / 10%),
+    inset -1px 0 0 rgb(248 189 28 / 10%),
+    inset 0 -1px 0 rgb(0 0 0 / 28%),
+    inset 0 0 0 1px rgb(255 248 223 / 4%);
+}
+
+.statusItem,
+.toolRow,
+.metric,
+.libraryFocus > div:first-child,
+.libraryEssentials div {
+  background:
+    var(--glass-lens),
+    var(--glass-caustic),
+    var(--surface-muted);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+}
+
+.statusItem:hover,
+.metric:hover,
+.toolRow.ready:hover,
+.toolRow.ready:focus-within {
+  background:
+    var(--glass-lens-strong),
+    var(--glass-caustic-strong),
+    var(--surface-panel-strong);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight-strong),
+    inset 1px 0 0 rgb(255 248 223 / 15%),
+    inset -1px 0 0 rgb(248 189 28 / 15%),
+    inset 0 -1px 0 rgb(0 0 0 / 32%),
+    inset 0 0 0 1px rgb(255 248 223 / 8%),
+    0 8px 12px rgb(0 0 0 / 28%);
+}
+
+.primaryButton,
+.secondaryButton,
+.navItem {
+  isolation: isolate;
+}
+
+.primaryButton::before,
+.secondaryButton::before,
+.navItem::before {
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 42%), transparent 34%, rgb(0 0 0 / 20%) 100%),
+    linear-gradient(120deg, transparent 0 52%, rgb(124 199 193 / 14%) 70%, transparent 88%);
+  opacity: 0.78;
+}
+
+.navItem::before {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 7%), transparent 42%, rgb(0 0 0 / 6%) 100%);
+  opacity: 0.18;
+}
+
+.primaryButton {
+  border: 1px solid rgb(255 248 223 / 50%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 84%),
+    inset 0 -1px 0 rgb(0 0 0 / 30%),
+    inset 1px 0 0 rgb(255 255 255 / 26%),
+    inset -1px 0 0 rgb(135 87 0 / 28%),
+    0 8px 12px rgb(248 189 28 / 30%);
+}
+
+.primaryButton:hover:not(:disabled) {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 90%),
+    inset 0 -1px 0 rgb(0 0 0 / 32%),
+    inset 1px 0 0 rgb(255 255 255 / 30%),
+    inset -1px 0 0 rgb(135 87 0 / 32%),
+    0 10px 14px rgb(248 189 28 / 38%);
+}
+
+.primaryButton:active:not(:disabled),
+.secondaryButton:active {
+  box-shadow: var(--glass-press-shadow);
+  transform: translateY(1px) scale(0.986);
+}
+
+.secondaryButton {
+  background:
+    var(--glass-lens),
+    var(--glass-caustic),
+    rgb(21 19 7 / 72%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight-strong),
+    inset 0 -1px 0 rgb(0 0 0 / 30%),
+    inset 0 0 0 1px rgb(255 248 223 / 5%),
+    0 6px 10px rgb(0 0 0 / 24%);
+}
+
+.secondaryButton:hover {
+  background:
+    var(--glass-lens-strong),
+    var(--glass-caustic-strong),
+    rgb(28 25 13 / 84%);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight-strong),
+    inset 0 -1px 0 rgb(0 0 0 / 32%),
+    inset 0 0 0 1px rgb(255 248 223 / 8%),
+    0 8px 12px rgb(248 189 28 / 20%);
+}
+
+.primaryButton:active:not(:disabled),
+.secondaryButton:active {
+  box-shadow: var(--glass-press-shadow);
+  transform: translateY(1px) scale(0.986);
+}
+
+.navItem:hover:not(:disabled),
+.navItem.active {
+  box-shadow:
+    inset 0 1px 0 rgb(255 248 223 / 12%),
+    inset 0 -1px 0 rgb(0 0 0 / 16%);
+}
+
+.navItem:hover:not(:disabled) {
+  border-color: rgb(255 248 223 / 14%);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 5%), transparent 44%),
+    rgb(255 248 223 / 4%);
+}
+
+.navItem.active {
+  border-color: rgb(248 189 28 / 46%);
+  background:
+    linear-gradient(180deg, rgb(255 210 87 / 9%), transparent 48%),
+    rgb(248 189 28 / 8%);
+}
+
+.navItem.active::before {
+  opacity: 0.26;
+}
+
+.navItem:disabled::before {
+  opacity: 0.18;
+}
+
+.barDetail {
+  background:
+    var(--glass-caustic-strong),
+    var(--surface-control-strong);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight-strong),
+    inset 0 -1px 0 rgb(0 0 0 / 24%),
+    0 12px 14px rgb(0 0 0 / 34%);
+}
+
+.homeGlassDeck .statusStrip,
+.homeGlassDeck .toolRows,
+.homeGlassDeck .panel {
+  border-color: rgb(255 248 223 / 14%);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 8%), transparent 34%, rgb(0 0 0 / 8%) 100%),
+    linear-gradient(rgb(18 20 17 / 42%), rgb(14 16 13 / 34%));
+  box-shadow:
+    inset 0 1px 0 rgb(255 248 223 / 20%),
+    inset 0 -1px 0 rgb(0 0 0 / 18%);
+  -webkit-backdrop-filter: blur(26px) saturate(1.2) contrast(1.02);
+  backdrop-filter: blur(26px) saturate(1.2) contrast(1.02);
+}
+
+.homeGlassDeck .statusStrip::before,
+.homeGlassDeck .toolRows::before,
+.homeGlassDeck .panel::before {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 9%), transparent 38%, rgb(0 0 0 / 6%) 100%),
+    linear-gradient(112deg, transparent 0 62%, rgb(124 199 193 / 4%) 76%, transparent 92%);
+  opacity: 0.5;
+}
+
+.homeGlassDeck .panel:hover,
+.homeGlassDeck .toolRows:hover {
+  border-color: rgb(255 248 223 / 20%);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 10%), transparent 34%, rgb(0 0 0 / 8%) 100%),
+    linear-gradient(rgb(22 24 20 / 48%), rgb(16 18 15 / 40%));
+  box-shadow:
+    inset 0 1px 0 rgb(255 248 223 / 24%),
+    inset 0 -1px 0 rgb(0 0 0 / 20%),
+    0 10px 22px rgb(0 0 0 / 18%);
+}
+
+.homeGlassDeck .statusItem,
+.homeGlassDeck .toolRow,
+.homeGlassDeck .metric,
+.homeGlassDeck .libraryFocus > div:first-child,
+.homeGlassDeck .libraryEssentials div {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 7%), transparent 36%, rgb(0 0 0 / 5%) 100%),
+    rgb(255 248 223 / 3%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 248 223 / 12%),
+    inset 0 -1px 0 rgb(0 0 0 / 14%);
+  -webkit-backdrop-filter: blur(18px) saturate(1.12);
+  backdrop-filter: blur(18px) saturate(1.12);
+}
+
+.homeGlassDeck .statusItem::before,
+.homeGlassDeck .toolRow::before,
+.homeGlassDeck .metric::before,
+.homeGlassDeck .libraryFocus > div:first-child::before,
+.homeGlassDeck .libraryEssentials div::before {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 6%), transparent 38%, rgb(0 0 0 / 4%) 100%);
+  opacity: 0.42;
+}
+
+.homeGlassDeck .statusItem + .statusItem,
+.homeGlassDeck .libraryEssentials div + div {
+  border-left: 1px solid rgb(255 248 223 / 8%);
+}
+
+.homeGlassDeck .statusStrip {
+  margin-bottom: 16px;
+}
+
+.homeGlassDeck .statusItem {
+  min-height: 64px;
+}
+
+.homeGlassDeck .toolRows {
+  gap: 0;
+  border-radius: 12px;
+}
+
+.homeGlassDeck .toolRow {
+  border-bottom: 1px solid rgb(255 248 223 / 8%);
+}
+
+.homeGlassDeck .toolRow:last-child {
+  border-bottom: 0;
+}
+
+.homeGlassDeck .toolRow.ready:hover,
+.homeGlassDeck .toolRow.ready:focus-within {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 10%), transparent 34%, rgb(0 0 0 / 8%) 100%),
+    rgb(255 248 223 / 5%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 248 223 / 18%),
+    inset 0 -1px 0 rgb(0 0 0 / 18%);
+}
+
+.homeGlassDeck .libraryFocus {
+  margin-bottom: 12px;
+}
+
+.homeGlassDeck .libraryFocus > div:first-child,
+.homeGlassDeck .libraryEssentials {
+  border-color: rgb(255 248 223 / 12%);
+  background: rgb(255 248 223 / 4%);
+}
+
+.homeGlassDeck .libraryEssentials {
+  box-shadow:
+    inset 0 1px 0 rgb(255 248 223 / 12%),
+    inset 0 -1px 0 rgb(0 0 0 / 12%);
+}
+
+.homeGlassDeck .secondaryButton {
+  border-color: rgb(255 248 223 / 18%);
+  color: #ffd257;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 10%), transparent 42%, rgb(0 0 0 / 8%) 100%),
+    rgb(248 189 28 / 8%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 248 223 / 18%),
+    inset 0 -1px 0 rgb(0 0 0 / 18%);
+}
+
+.homeGlassDeck .secondaryButton:hover {
+  border-color: rgb(255 210 87 / 42%);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 14%), transparent 42%, rgb(0 0 0 / 8%) 100%),
+    rgb(248 189 28 / 12%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 248 223 / 24%),
+    inset 0 -1px 0 rgb(0 0 0 / 18%),
+    0 8px 18px rgb(0 0 0 / 16%);
+}
+
+:root {
+  --field-base: #050604;
+  --field-light: rgb(255 248 223 / 8%);
+  --field-light-soft: rgb(255 248 223 / 5%);
+  --field-amber: rgb(248 189 28 / 4%);
+  --shell-fill: rgb(18 20 17 / 58%);
+  --shell-fill-deep: rgb(10 11 9 / 48%);
+  --shell-rim: rgb(255 255 255 / 30%);
+  --shell-rim-soft: rgb(255 248 223 / 11%);
+  --shell-highlight: rgb(255 255 255 / 18%);
+  --shell-lowlight: rgb(0 0 0 / 28%);
+  --shell-shadow: rgb(0 0 0 / 34%);
+  --panel-fill: rgb(255 248 223 / 5.5%);
+  --panel-fill-hover: rgb(255 248 223 / 7.5%);
+  --panel-rim: rgb(255 255 255 / 16%);
+  --panel-highlight: rgb(255 255 255 / 12%);
+  --inset-fill: rgb(0 0 0 / 16%);
+  --inset-fill-soft: rgb(255 248 223 / 4%);
+  --inset-rim: rgb(255 255 255 / 8%);
+  --control-fill: rgb(255 248 223 / 8%);
+  --control-fill-hover: rgb(255 248 223 / 12%);
+  --control-rim: rgb(255 255 255 / 22%);
+  --control-shadow: rgb(0 0 0 / 24%);
+  --usage-accent-soft: rgb(248 189 28 / 10%);
+  --usage-accent-line: rgb(248 189 28 / 26%);
+  --usage-divider: rgb(255 248 223 / 7%);
+}
+
+.appShell[data-theme="light"] {
+  --field-base: #f5f3ec;
+  --field-light: rgb(255 255 255 / 72%);
+  --field-light-soft: rgb(255 255 255 / 42%);
+  --field-amber: rgb(185 122 0 / 6%);
+  --shell-fill: rgb(255 253 246 / 58%);
+  --shell-fill-deep: rgb(235 229 211 / 34%);
+  --shell-rim: rgb(255 255 255 / 84%);
+  --shell-rim-soft: rgb(94 76 28 / 12%);
+  --shell-highlight: rgb(255 255 255 / 70%);
+  --shell-lowlight: rgb(86 62 10 / 10%);
+  --shell-shadow: rgb(80 60 18 / 18%);
+  --panel-fill: rgb(255 255 255 / 40%);
+  --panel-fill-hover: rgb(255 255 255 / 52%);
+  --panel-rim: rgb(255 255 255 / 58%);
+  --panel-highlight: rgb(255 255 255 / 82%);
+  --inset-fill: rgb(86 62 10 / 6%);
+  --inset-fill-soft: rgb(255 255 255 / 30%);
+  --inset-rim: rgb(94 76 28 / 10%);
+  --control-fill: rgb(255 255 255 / 64%);
+  --control-fill-hover: rgb(255 255 255 / 78%);
+  --control-rim: rgb(255 255 255 / 78%);
+  --control-shadow: rgb(80 60 18 / 13%);
+  --accent: #a86c00;
+  --accent-hover: #8d5700;
+  --usage-accent-soft: rgb(185 122 0 / 11%);
+  --usage-accent-line: rgb(185 122 0 / 24%);
+  --usage-divider: rgb(94 76 28 / 9%);
+}
+
+.appShell[data-theme="light"] .usageGlassShell h1,
+.appShell[data-theme="light"] .usageGlassShell h2,
+.appShell[data-theme="light"] .usageGlassShell .metric strong,
+.appShell[data-theme="light"] .usageGlassShell .statusItem strong,
+.appShell[data-theme="light"] .usageGlassShell .panelHead h2,
+.appShell[data-theme="light"] .usageGlassShell .healthRow strong,
+.appShell[data-theme="light"] .usageGlassShell td,
+.appShell[data-theme="light"] .usageGlassShell td:first-child {
+  color: var(--text-strong);
+}
+
+.appShell[data-theme="light"] .usageGlassShell .pageHeader p,
+.appShell[data-theme="light"] .usageGlassShell .toolType,
+.appShell[data-theme="light"] .usageGlassShell .statusItem span,
+.appShell[data-theme="light"] .usageGlassShell .metric span,
+.appShell[data-theme="light"] .usageGlassShell .metric small,
+.appShell[data-theme="light"] .usageGlassShell .panelHead span,
+.appShell[data-theme="light"] .usageGlassShell .healthRow span,
+.appShell[data-theme="light"] .usageGlassShell th,
+.appShell[data-theme="light"] .usageGlassShell .trendItem span,
+.appShell[data-theme="light"] .usageGlassShell .modelRow span {
+  color: var(--text-muted);
+}
+
+.appShell[data-theme="light"] .usageGlassShell .metric.accent strong,
+.appShell[data-theme="light"] .usageGlassShell .metric.warn strong,
+.appShell[data-theme="light"] .usageGlassShell .statusItem.accent strong,
+.appShell[data-theme="light"] .usageGlassShell .statusItem.warn strong,
+.appShell[data-theme="light"] .usageGlassShell .modelRow em,
+.appShell[data-theme="light"] .usageGlassShell .selectedRow td:first-child {
+  color: var(--accent);
+}
+
+.appShell[data-theme="light"] .runBadge {
+  color: #5f3a00;
+}
+
+.appShell {
+  background:
+    radial-gradient(circle at 76% 7%, var(--field-light) 0, transparent 29%),
+    linear-gradient(124deg, transparent 0 37%, var(--field-light-soft) 49%, transparent 63% 100%),
+    linear-gradient(26deg, transparent 0 58%, var(--field-amber) 72%, transparent 86% 100%),
+    var(--field-base);
+}
+
+.appShell::before {
+  background:
+    linear-gradient(112deg, transparent 0 18%, rgb(255 248 223 / 8%) 29%, transparent 42% 100%),
+    linear-gradient(156deg, transparent 0 52%, rgb(255 255 255 / 5%) 63%, transparent 76% 100%);
+  filter: blur(24px) saturate(0.92);
+  opacity: 0.62;
+}
+
+.appShell::after {
+  inset: -12% -8%;
+  background:
+    linear-gradient(103deg, transparent 0 39%, rgb(255 248 223 / 9%) 48%, transparent 57% 100%),
+    linear-gradient(32deg, transparent 0 64%, rgb(248 189 28 / 5%) 73%, transparent 84% 100%);
+  filter: blur(36px) saturate(0.86);
+  opacity: 0.54;
+}
+
+.usageGlassShell {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 1320px);
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, var(--shell-highlight) 0%, transparent 29%, var(--shell-lowlight) 100%),
+    linear-gradient(116deg, transparent 0 45%, rgb(255 255 255 / 7%) 54%, transparent 66% 100%),
+    linear-gradient(180deg, var(--shell-fill), var(--shell-fill-deep));
+  box-shadow:
+    inset 0 1px 0 var(--shell-highlight),
+    inset 0 -1px 0 var(--shell-lowlight),
+    inset 1px 0 0 rgb(255 255 255 / 8%),
+    inset -1px 0 0 rgb(255 248 223 / 5%),
+    0 20px 34px var(--shell-shadow),
+    0 2px 0 rgb(255 255 255 / 5%);
+  -webkit-backdrop-filter: blur(34px) saturate(1.2) contrast(1.03);
+  backdrop-filter: blur(34px) saturate(1.2) contrast(1.03);
+}
+
+.usageGlassShell::before,
+.usageGlassShell::after {
+  position: absolute;
+  pointer-events: none;
+  content: "";
+}
+
+.usageGlassShell::before {
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--shell-rim),
+    inset 0 0 0 2px var(--shell-rim-soft);
+}
+
+.usageGlassShell::after {
+  z-index: 0;
+  top: 1px;
+  right: 8%;
+  left: 8%;
+  height: 34%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 16%), transparent);
+  filter: blur(18px);
+  opacity: 0.72;
+}
+
+.usageGlassShell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.usageGlassShell .pageHeader,
+.usageGlassShell .statusStrip,
+.usageGlassShell .workspaceGrid,
+.usageGlassShell .statePanel,
+.usageGlassShell .errorPanel {
+  width: auto;
+  margin-inline: 0;
+}
+
+.usageGlassShell .pageHeader {
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.usageGlassShell .toolbar {
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--inset-fill);
+  box-shadow:
+    inset 0 1px 0 var(--inset-rim),
+    inset 0 -1px 0 rgb(0 0 0 / 12%);
+}
+
+.usageGlassShell .toolbar input,
+.runBadge {
+  border: 0;
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, var(--panel-highlight), transparent 42%, rgb(0 0 0 / 10%) 100%),
+    var(--control-fill);
+  box-shadow:
+    inset 0 1px 0 var(--control-rim),
+    inset 0 -1px 0 rgb(0 0 0 / 20%),
+    0 5px 8px var(--control-shadow);
+  -webkit-backdrop-filter: blur(20px) saturate(1.14);
+  backdrop-filter: blur(20px) saturate(1.14);
+}
+
+.usageGlassShell .toolbar input:hover {
+  background:
+    linear-gradient(180deg, var(--panel-highlight), transparent 42%, rgb(0 0 0 / 10%) 100%),
+    var(--control-fill-hover);
+}
+
+.usageGlassShell .toolbar input:focus-visible {
+  box-shadow:
+    inset 0 1px 0 var(--control-rim),
+    inset 0 -1px 0 rgb(0 0 0 / 20%),
+    0 0 0 3px var(--usage-accent-line),
+    0 6px 10px var(--control-shadow);
+}
+
+.usageGlassShell .primaryButton {
+  min-height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 38%) 0%, transparent 34%, rgb(0 0 0 / 18%) 100%),
+    linear-gradient(180deg, #ffe492 0%, #f8bd1c 53%, #b96f00 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 72%),
+    inset 0 -1px 0 rgb(0 0 0 / 28%),
+    inset 1px 0 0 rgb(255 255 255 / 18%),
+    inset -1px 0 0 rgb(92 57 0 / 24%),
+    0 7px 10px rgb(0 0 0 / 26%);
+}
+
+.usageGlassShell .primaryButton:hover:not(:disabled) {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 44%) 0%, transparent 34%, rgb(0 0 0 / 18%) 100%),
+    linear-gradient(180deg, #fff0ad 0%, #ffd257 52%, #c47a00 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 78%),
+    inset 0 -1px 0 rgb(0 0 0 / 30%),
+    inset 1px 0 0 rgb(255 255 255 / 22%),
+    inset -1px 0 0 rgb(92 57 0 / 26%),
+    0 9px 12px rgb(0 0 0 / 28%);
+}
+
+.usageGlassShell .statusStrip,
+.usageGlassShell .summaryBand {
+  gap: 0;
+  border: 0;
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 6%), transparent 38%, rgb(0 0 0 / 9%) 100%),
+    var(--inset-fill);
+  box-shadow:
+    inset 0 1px 0 var(--inset-rim),
+    inset 0 -1px 0 rgb(0 0 0 / 18%),
+    inset 0 0 0 1px rgb(255 255 255 / 4%);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.usageGlassShell .statusStrip::before,
+.usageGlassShell .summaryBand::before {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 5%), transparent 34%, rgb(0 0 0 / 5%) 100%);
+  opacity: 0.5;
+}
+
+.usageGlassShell .statusItem,
+.usageGlassShell .metric {
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.usageGlassShell .statusItem::before,
+.usageGlassShell .metric::before {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 5%), transparent 42%, rgb(0 0 0 / 4%) 100%);
+  opacity: 0.52;
+}
+
+.usageGlassShell .statusItem + .statusItem,
+.usageGlassShell .metric + .metric {
+  border-left: 1px solid var(--usage-divider);
+}
+
+.usageGlassShell .statusItem:hover,
+.usageGlassShell .metric:hover {
+  background: var(--inset-fill-soft);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 5%);
+}
+
+.usageGlassShell .metric {
+  min-height: 106px;
+  padding: 15px 16px;
+}
+
+.usageGlassShell .metric strong {
+  margin-top: 11px;
+}
+
+.usageGlassShell .metric.accent strong,
+.usageGlassShell .statusItem.accent strong,
+.usageGlassShell .selectedRow td:first-child {
+  color: var(--accent);
+}
+
+.usageGlassShell .metric.warn strong,
+.usageGlassShell .statusItem.warn strong {
+  color: #ffd257;
+}
+
+.usageGlassShell .panel,
+.usageGlassShell .statePanel,
+.usageGlassShell .errorPanel {
+  border: 0;
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, var(--panel-highlight), transparent 38%, rgb(0 0 0 / 8%) 100%),
+    var(--panel-fill);
+  box-shadow:
+    inset 0 1px 0 var(--panel-rim),
+    inset 0 -1px 0 rgb(0 0 0 / 16%),
+    inset 0 0 0 1px rgb(255 255 255 / 4%),
+    0 7px 10px rgb(0 0 0 / 18%);
+  -webkit-backdrop-filter: blur(20px) saturate(1.12);
+  backdrop-filter: blur(20px) saturate(1.12);
+}
+
+.usageGlassShell .panel::before,
+.usageGlassShell .statePanel::before,
+.usageGlassShell .errorPanel::before {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 7%), transparent 36%, rgb(0 0 0 / 5%) 100%),
+    linear-gradient(112deg, transparent 0 62%, rgb(255 255 255 / 4%) 74%, transparent 90%);
+  opacity: 0.54;
+}
+
+.usageGlassShell .panel:hover {
+  background:
+    linear-gradient(180deg, var(--panel-highlight), transparent 38%, rgb(0 0 0 / 8%) 100%),
+    var(--panel-fill-hover);
+  box-shadow:
+    inset 0 1px 0 var(--panel-rim),
+    inset 0 -1px 0 rgb(0 0 0 / 16%),
+    inset 0 0 0 1px rgb(255 255 255 / 5%),
+    0 8px 11px rgb(0 0 0 / 19%);
+}
+
+.usageGlassShell .panelHead svg {
+  color: rgb(255 248 223 / 72%);
+}
+
+.usageGlassShell .activityPanel .trend,
+.usageGlassShell .tableWrap,
+.usageGlassShell .modelList,
+.usageGlassShell .healthList,
+.usageGlassShell .reconcileBlock {
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 4%), transparent 42%, rgb(0 0 0 / 5%) 100%),
+    var(--inset-fill);
+  box-shadow:
+    inset 0 1px 0 var(--inset-rim),
+    inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+
+.usageGlassShell .activityPanel .trend {
+  min-height: 230px;
+  padding: 10px;
+}
+
+.usageGlassShell .tableWrap {
+  padding: 2px 6px;
+}
+
+.usageGlassShell .modelList,
+.usageGlassShell .healthList,
+.usageGlassShell .reconcileBlock {
+  padding: 8px;
+}
+
+.usageGlassShell .barTrack,
+.usageGlassShell .shareTrack {
+  border: 0;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 5%), transparent 42%, rgb(0 0 0 / 8%) 100%),
+    rgb(0 0 0 / 18%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 6%),
+    inset 0 -1px 0 rgb(0 0 0 / 18%);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.usageGlassShell .barFill {
+  background: linear-gradient(180deg, #fff0a6 0%, #f8bd1c 48%, #b87200 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 38%);
+}
+
+.usageGlassShell .trendItem:hover .barTrack,
+.usageGlassShell .trendItem:focus-visible .barTrack {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 7%), transparent 42%, rgb(0 0 0 / 8%) 100%),
+    rgb(248 189 28 / 8%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 8%),
+    inset 0 -1px 0 rgb(0 0 0 / 18%),
+    0 5px 8px rgb(0 0 0 / 16%);
+}
+
+.usageGlassShell .trendItem:hover .barFill,
+.usageGlassShell .trendItem:focus-visible .barFill {
+  background: linear-gradient(180deg, #fff5bd 0%, #ffd257 48%, #bd7800 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 44%);
+}
+
+.usageGlassShell .barDetail {
+  border: 0;
+  background:
+    linear-gradient(180deg, var(--panel-highlight), transparent 42%, rgb(0 0 0 / 10%) 100%),
+    var(--control-fill-hover);
+  box-shadow:
+    inset 0 1px 0 var(--control-rim),
+    inset 0 -1px 0 rgb(0 0 0 / 18%),
+    0 8px 10px rgb(0 0 0 / 28%);
+}
+
+.usageGlassShell .modelRow {
+  border: 0;
+  background: transparent;
+}
+
+.usageGlassShell .modelRow:hover,
+.usageGlassShell .modelRow:focus-visible {
+  background: rgb(255 248 223 / 5%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 5%),
+    inset 0 -1px 0 rgb(0 0 0 / 8%);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.usageGlassShell .shareTrack div,
+.usageGlassShell .modelRow:hover .shareTrack div,
+.usageGlassShell .modelRow:focus-visible .shareTrack div {
+  background: linear-gradient(90deg, rgb(255 248 223 / 58%) 0%, rgb(248 189 28 / 72%) 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 20%);
+}
+
+.usageGlassShell .healthRow {
+  border-bottom-color: var(--usage-divider);
+}
+
+.usageGlassShell th,
+.usageGlassShell td {
+  border-bottom-color: var(--usage-divider);
+}
+
+.usageGlassShell td {
+  color: var(--text-primary);
+}
+
+.usageGlassShell tbody tr:hover td {
+  background: rgb(255 248 223 / 4%);
+}
+
+.usageGlassShell .selectedRow td,
+.usageGlassShell tbody tr.selectedRow:hover td {
+  background: var(--usage-accent-soft);
+}
+
+.usageGlassShell .statePanel,
+.usageGlassShell .errorPanel {
+  margin-bottom: 16px;
+}
+
+.runBadge {
+  color: var(--accent);
+  min-height: 28px;
+  display: inline-grid;
+  place-items: center;
+}
+
+.runBadge.warn {
+  color: var(--error);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 10%), transparent 42%, rgb(0 0 0 / 10%) 100%),
+    var(--surface-error);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .usageGlassShell .panel:hover,
+  .usageGlassShell .metric:hover,
+  .usageGlassShell .statusItem:hover {
+    transform: none;
+  }
+
+  .usageGlassShell .primaryButton:hover:not(:disabled):not(:active),
+  .usageGlassShell .toolbar input:hover {
+    transform: translateY(-1px);
+  }
+
+  .usageGlassShell .primaryButton:active:not(:disabled) {
+    transform: translateY(1px) scale(0.986);
+  }
+}
+
+@media (max-width: 680px) {
+  .usageGlassShell {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .usageGlassShell .toolbar {
+    padding: 8px;
+  }
+
+  .usageGlassShell .activityPanel .trend,
+  .usageGlassShell .tableWrap,
+  .usageGlassShell .modelList,
+  .usageGlassShell .healthList,
+  .usageGlassShell .reconcileBlock {
+    border-radius: 9px;
+  }
+}
+
+.codexUsageGlassSpikeApp {
+  --spike-shell-fill: rgb(255 255 255 / 1.35%);
+  --spike-shell-rim: rgb(255 255 255 / 30%);
+  --spike-shell-rim-soft: rgb(255 248 223 / 7%);
+  --spike-shell-highlight: rgb(255 255 255 / 10%);
+  --spike-shell-lowlight: rgb(0 0 0 / 21%);
+  --spike-shell-shadow: rgb(0 0 0 / 26%);
+  --spike-panel-fill: rgb(255 255 255 / 2.2%);
+  --spike-panel-hover: rgb(255 255 255 / 3%);
+  --spike-panel-rim: rgb(255 255 255 / 10%);
+  --spike-inset-fill: rgb(0 0 0 / 9.5%);
+  --spike-inset-fill-soft: rgb(255 255 255 / 1.2%);
+  --spike-inset-rim: rgb(255 255 255 / 4.2%);
+  --spike-control-fill: rgb(255 255 255 / 7.2%);
+  --spike-control-hover: rgb(255 255 255 / 9.8%);
+  --spike-control-rim: rgb(255 255 255 / 26%);
+  --spike-divider: rgb(255 255 255 / 2.3%);
+  --spike-contact-shadow: rgb(0 0 0 / 15%);
+  --spike-amber: #e5a817;
+  --spike-amber-low: #a86605;
+  background:
+    radial-gradient(circle at 18% 10%, rgb(255 251 236 / 5%), transparent 28%),
+    radial-gradient(circle at 83% 16%, rgb(248 189 28 / 1%), transparent 30%),
+    linear-gradient(118deg, transparent 0 36%, rgb(255 255 255 / 2.2%) 48%, transparent 61% 100%),
+    linear-gradient(180deg, #10110e 0%, #070806 52%, #020302 100%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] {
+  --spike-shell-fill: rgb(255 255 255 / 9.5%);
+  --spike-shell-rim: rgb(255 255 255 / 72%);
+  --spike-shell-rim-soft: rgb(99 77 30 / 6.5%);
+  --spike-shell-highlight: rgb(255 255 255 / 58%);
+  --spike-shell-lowlight: rgb(86 64 20 / 4.8%);
+  --spike-shell-shadow: rgb(93 70 28 / 5.4%);
+  --spike-panel-fill: rgb(255 255 255 / 13%);
+  --spike-panel-hover: rgb(255 255 255 / 17%);
+  --spike-panel-rim: rgb(255 255 255 / 44%);
+  --spike-inset-fill: rgb(94 76 34 / 2.3%);
+  --spike-inset-fill-soft: rgb(255 255 255 / 9%);
+  --spike-inset-rim: rgb(94 76 34 / 3.8%);
+  --spike-control-fill: rgb(255 255 255 / 38%);
+  --spike-control-hover: rgb(255 255 255 / 48%);
+  --spike-control-rim: rgb(255 255 255 / 78%);
+  --spike-divider: rgb(92 74 32 / 2.8%);
+  --spike-contact-shadow: rgb(97 76 35 / 4.7%);
+  --spike-amber: #d9910d;
+  --spike-amber-low: #9f5f03;
+  background:
+    radial-gradient(circle at 18% 13%, rgb(255 255 255 / 92%), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgb(248 189 28 / 2.8%), transparent 31%),
+    linear-gradient(116deg, transparent 0 36%, rgb(255 255 255 / 36%) 49%, transparent 62% 100%),
+    linear-gradient(180deg, #fffefa 0%, #faf7ef 56%, #f4eedf 100%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] main {
+  background:
+    radial-gradient(circle at 18% 12%, rgb(255 255 255 / 92%), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgb(248 189 28 / 2.4%), transparent 32%),
+    linear-gradient(116deg, transparent 0 36%, rgb(255 255 255 / 38%) 49%, transparent 62% 100%),
+    linear-gradient(180deg, #fffefa 0%, #fbf8f1 57%, #f5efe2 100%);
+}
+
+.codexUsageGlassSpikeApp main {
+  background:
+    radial-gradient(circle at 16% 10%, rgb(255 251 236 / 3.8%), transparent 27%),
+    radial-gradient(circle at 84% 17%, rgb(248 189 28 / 0.8%), transparent 30%),
+    linear-gradient(118deg, transparent 0 36%, rgb(255 255 255 / 1.5%) 49%, transparent 63% 100%),
+    rgb(7 8 6 / 52%);
+  -webkit-backdrop-filter: blur(8px) saturate(1.02);
+  backdrop-filter: blur(8px) saturate(1.02);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] main {
+  background:
+    radial-gradient(circle at 18% 12%, rgb(255 255 255 / 74%), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgb(248 189 28 / 1.5%), transparent 32%),
+    linear-gradient(116deg, transparent 0 36%, rgb(255 255 255 / 24%) 49%, transparent 62% 100%),
+    rgb(252 249 242 / 58%);
+}
+
+.codexUsageGlassSpikeApp .toolRail,
+.codexUsageGlassSpikeApp .topBar {
+  background:
+    radial-gradient(circle at 22% 8%, rgb(255 255 255 / 2.2%), transparent 30%),
+    linear-gradient(180deg, rgb(255 255 255 / 2.5%), transparent 34%, rgb(0 0 0 / 7%) 100%),
+    var(--spike-shell-fill);
+  box-shadow:
+    inset 0 1px 0 var(--spike-shell-highlight),
+    inset 0 -1px 0 rgb(0 0 0 / 13%),
+    inset 0 0 0 1px var(--spike-shell-rim-soft),
+    0 4px 7px rgb(0 0 0 / 9%);
+  -webkit-backdrop-filter: blur(14px) saturate(1.04) contrast(1.01);
+  backdrop-filter: blur(14px) saturate(1.04) contrast(1.01);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .toolRail,
+.codexUsageGlassSpikeApp[data-theme="light"] .topBar {
+  background:
+    radial-gradient(circle at 22% 8%, rgb(255 255 255 / 18%), transparent 30%),
+    linear-gradient(180deg, rgb(255 255 255 / 15%), transparent 36%, rgb(86 64 20 / 3.4%) 100%),
+    var(--spike-shell-fill);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 52%),
+    inset 0 -1px 0 rgb(86 64 20 / 5.5%),
+    inset 0 0 0 1px var(--spike-shell-rim-soft),
+    0 5px 9px rgb(93 70 28 / 5.8%);
+}
+
+.codexUsageGlassSpikeApp .topBar {
+  margin-bottom: 14px;
+  color: var(--text-muted);
+}
+
+.codexUsageGlassSpikeApp .breadcrumb {
+  opacity: 0.82;
+}
+
+.codexUsageGlassSpikeApp .breadcrumb strong {
+  color: rgb(244 240 221 / 86%);
+}
+
+.codexUsageGlassSpikeApp .suiteCard,
+.codexUsageGlassSpikeApp .railNote {
+  border-color: rgb(255 255 255 / 5%);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 2.4%), transparent 48%, rgb(0 0 0 / 6%) 100%),
+    rgb(255 255 255 / 1.4%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 5.5%),
+    inset 0 -1px 0 rgb(0 0 0 / 9%);
+  -webkit-backdrop-filter: blur(12px) saturate(1.02);
+  backdrop-filter: blur(12px) saturate(1.02);
+}
+
+.codexUsageGlassSpikeApp .suiteCard dl {
+  border-color: rgb(255 255 255 / 4%);
+  background: rgb(255 255 255 / 2.4%);
+}
+
+.codexUsageGlassSpikeApp .suiteCard dl div {
+  background: rgb(0 0 0 / 16%);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.codexUsageGlassSpikeApp .suiteCard dd,
+.codexUsageGlassSpikeApp .railNote svg {
+  color: rgb(229 168 23 / 76%);
+}
+
+.codexUsageGlassSpikeApp .railFooter {
+  border-top-color: rgb(255 255 255 / 4%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .suiteCard,
+.codexUsageGlassSpikeApp[data-theme="light"] .railNote {
+  border-color: rgb(92 74 32 / 4%);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 16%), transparent 48%, rgb(86 64 20 / 2.5%) 100%),
+    rgb(255 255 255 / 8%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 38%),
+    inset 0 -1px 0 rgb(86 64 20 / 4%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .suiteCard dl {
+  border-color: rgb(92 74 32 / 4%);
+  background: rgb(94 76 34 / 3%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .suiteCard dl div {
+  background: rgb(255 255 255 / 22%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .suiteCard dd,
+.codexUsageGlassSpikeApp[data-theme="light"] .railNote svg {
+  color: #a66b05;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .brand strong,
+.codexUsageGlassSpikeApp[data-theme="light"] .navItem strong,
+.codexUsageGlassSpikeApp[data-theme="light"] .railFooter strong,
+.codexUsageGlassSpikeApp[data-theme="light"] .breadcrumb strong,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike h1,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike h2,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike td,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .metric strong,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .statusItem strong,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .healthRow strong,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .modelRow strong {
+  color: #111008;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .breadcrumb,
+.codexUsageGlassSpikeApp[data-theme="light"] .brand span,
+.codexUsageGlassSpikeApp[data-theme="light"] .navItem small,
+.codexUsageGlassSpikeApp[data-theme="light"] .railLabel,
+.codexUsageGlassSpikeApp[data-theme="light"] .railNote,
+.codexUsageGlassSpikeApp[data-theme="light"] .railFooter span,
+.codexUsageGlassSpikeApp[data-theme="light"] .railFooter small,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike p,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike span,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike small,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike th,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .modelRow span,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .healthRow span {
+  color: #5f5848;
+}
+
+.codexUsageGlassSpikeApp .navItem.active {
+  position: relative;
+  overflow: hidden;
+  border-color: transparent;
+  background:
+    radial-gradient(circle at 18% 10%, rgb(255 255 255 / 6.5%), transparent 34%),
+    linear-gradient(180deg, rgb(255 255 255 / 5.8%), transparent 46%, rgb(0 0 0 / 5%) 100%),
+    var(--spike-control-fill);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 6%),
+    inset -1px 0 0 rgb(0 0 0 / 5%),
+    inset 0 1px 0 rgb(255 255 255 / 12%),
+    inset 0 -1px 0 rgb(0 0 0 / 8%),
+    0 2px 4px var(--spike-contact-shadow);
+}
+
+.codexUsageGlassSpikeApp .navItem.active::before {
+  position: absolute;
+  inset: 12px auto 12px 8px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgb(255 248 223 / 34%), rgb(229 168 23 / 72%) 58%, rgb(168 102 5 / 34%));
+  content: "";
+}
+
+.codexUsageGlassSpikeApp .navItem.active svg,
+.codexUsageGlassSpikeApp .navItem.active code,
+.codexUsageGlassSpikeApp .navItem.active em {
+  color: rgb(215 170 56 / 84%);
+}
+
+.codexUsageGlassSpikeApp .runBadge.ok,
+.codexUsageGlassSpikeApp .runBadge {
+  color: #171108;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 48%) 0%, transparent 48%, rgb(88 48 0 / 12%) 100%),
+    linear-gradient(180deg, #f8dc90, var(--spike-amber) 74%, var(--spike-amber-low));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 70%),
+    inset 0 -1px 0 rgb(0 0 0 / 16%),
+    0 4px 7px var(--spike-contact-shadow);
+}
+
+.usageProductSpike {
+  max-width: 1320px;
+  padding: 18px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 20% 10%, rgb(255 255 255 / 2%), transparent 32%),
+    linear-gradient(180deg, rgb(255 255 255 / 2.3%) 0%, transparent 33%, rgb(0 0 0 / 12%) 100%),
+    linear-gradient(124deg, transparent 0 43%, rgb(255 255 255 / 2.1%) 54%, transparent 66% 100%),
+    var(--spike-shell-fill);
+  box-shadow:
+    inset 0 1px 0 var(--spike-shell-highlight),
+    inset 0 -1px 0 rgb(0 0 0 / 15%),
+    inset 1px 0 0 rgb(255 255 255 / 4.8%),
+    inset -1px 0 0 rgb(0 0 0 / 7%),
+    0 6px 9px rgb(0 0 0 / 12%),
+    0 13px 20px var(--spike-shell-shadow);
+  -webkit-backdrop-filter: blur(16px) saturate(1.04) contrast(1.02);
+  backdrop-filter: blur(16px) saturate(1.04) contrast(1.02);
+}
+
+.usageProductSpike::before {
+  box-shadow:
+    inset 0 0 0 1px var(--spike-shell-rim),
+    inset 0 0 0 2px var(--spike-shell-rim-soft),
+    inset 0 10px 16px rgb(255 255 255 / 1.6%),
+    inset 0 -18px 22px rgb(0 0 0 / 9%);
+}
+
+.usageProductSpike::after {
+  right: 12%;
+  left: 12%;
+  height: 14%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 7.5%), transparent);
+  filter: blur(14px);
+  opacity: 0.28;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike {
+  background:
+    radial-gradient(circle at 20% 10%, rgb(255 255 255 / 9%), transparent 32%),
+    linear-gradient(180deg, rgb(255 255 255 / 9%) 0%, transparent 30%, rgb(86 64 20 / 2.1%) 100%),
+    linear-gradient(124deg, transparent 0 44%, rgb(255 255 255 / 5.5%) 54%, transparent 67% 100%),
+    var(--spike-shell-fill);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 62%),
+    inset 0 -1px 0 rgb(86 64 20 / 5%),
+    inset 1px 0 0 rgb(255 255 255 / 34%),
+    inset -1px 0 0 rgb(86 64 20 / 4%),
+    0 4px 7px rgb(93 70 28 / 4.5%),
+    0 11px 18px rgb(93 70 28 / 5.8%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike::after {
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 22%), transparent);
+  opacity: 0.38;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike::before {
+  box-shadow:
+    inset 0 0 0 1px var(--spike-shell-rim),
+    inset 0 0 0 2px var(--spike-shell-rim-soft),
+    inset 0 12px 18px rgb(255 255 255 / 8%),
+    inset 0 -18px 24px rgb(86 64 20 / 4.8%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .panel,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .statePanel,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .errorPanel {
+  background:
+    radial-gradient(circle at 18% 8%, rgb(255 255 255 / 6.5%), transparent 34%),
+    linear-gradient(180deg, rgb(255 255 255 / 8%) 0%, transparent 42%, rgb(86 64 20 / 2.2%) 100%),
+    linear-gradient(112deg, rgb(255 255 255 / 4%), transparent 54%, rgb(86 64 20 / 1.2%)),
+    var(--spike-panel-fill);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 16%),
+    inset -1px 0 0 rgb(86 64 20 / 2.5%),
+    inset 0 1px 0 rgb(255 255 255 / 30%),
+    inset 0 -1px 0 rgb(86 64 20 / 4.2%),
+    0 2px 4px var(--spike-contact-shadow);
+}
+
+.usageProductSpike .pageHeader {
+  margin-bottom: 14px;
+}
+
+.usageProductSpike .pageHeader h1 {
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.usageProductSpike .pageHeader p {
+  max-width: 70ch;
+}
+
+.usageProductSpike .toolbar {
+  gap: 10px;
+  padding: 8px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 3.5%), transparent 50%, rgb(0 0 0 / 6%) 100%),
+    var(--spike-inset-fill);
+  box-shadow:
+    inset 0 1px 0 var(--spike-inset-rim),
+    inset 0 -1px 0 rgb(0 0 0 / 10%);
+}
+
+.usageProductSpike .toolbar input,
+.usageProductSpike .runBadge {
+  min-height: 44px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 18% 10%, rgb(255 255 255 / 20%), transparent 34%),
+    linear-gradient(180deg, rgb(255 255 255 / 30%) 0%, transparent 42%, rgb(0 0 0 / 17%) 100%),
+    var(--spike-control-fill);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 14%),
+    inset -1px 0 0 rgb(0 0 0 / 12%),
+    inset 0 1px 0 var(--spike-control-rim),
+    inset 0 -2px 0 rgb(0 0 0 / 22%),
+    0 6px 9px var(--spike-contact-shadow);
+}
+
+.usageProductSpike .primaryButton {
+  min-height: 46px;
+  border-radius: 999px;
+  color: #151007;
+  background:
+    radial-gradient(circle at 28% 10%, rgb(255 255 255 / 42%), transparent 28%),
+    linear-gradient(180deg, rgb(255 255 255 / 68%) 0%, rgb(255 255 255 / 22%) 20%, transparent 48%, rgb(116 66 0 / 11%) 100%),
+    linear-gradient(90deg, rgb(255 246 203 / 20%), transparent 48%, rgb(126 70 0 / 8%)),
+    linear-gradient(180deg, #ffe8a6 0%, #ffc94a 52%, var(--spike-amber) 82%, var(--spike-amber-low) 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 88%),
+    inset 0 -2px 0 rgb(106 59 0 / 22%),
+    inset 12px 0 24px rgb(255 255 255 / 14%),
+    inset -12px 0 18px rgb(108 62 0 / 9%),
+    0 7px 9px rgb(0 0 0 / 30%),
+    0 13px 16px rgb(0 0 0 / 14%);
+}
+
+.usageProductSpike .primaryButton:hover:not(:disabled) {
+  background:
+    radial-gradient(circle at 28% 10%, rgb(255 255 255 / 48%), transparent 28%),
+    linear-gradient(180deg, rgb(255 255 255 / 72%) 0%, rgb(255 255 255 / 26%) 20%, transparent 48%, rgb(116 66 0 / 11%) 100%),
+    linear-gradient(90deg, rgb(255 246 203 / 22%), transparent 48%, rgb(126 70 0 / 8%)),
+    linear-gradient(180deg, #fff0bd 0%, #ffd15d 52%, #fac32b 82%, #d28d0a 100%);
+  transform: translateY(-1px);
+}
+
+.usageProductSpike .statusStrip {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+  overflow: visible;
+  margin-bottom: 14px;
+  border: 0;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 1.5%), transparent 54%, rgb(0 0 0 / 4.2%) 100%),
+    var(--spike-inset-fill);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 4.4%),
+    inset 0 -1px 0 rgb(0 0 0 / 7%);
+  padding: 5px;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.usageProductSpike .statusItem {
+  min-height: 52px;
+  border-radius: 0;
+  padding: 9px 12px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.usageProductSpike .statusItem:first-child {
+  border-radius: 16px 0 0 16px;
+}
+
+.usageProductSpike .statusItem:last-child {
+  border-radius: 0 16px 16px 0;
+}
+
+.usageProductSpike .statusItem + .statusItem {
+  border-left: 1px solid var(--spike-divider);
+}
+
+.usageProductSpike .statusItem strong {
+  color: var(--text-strong);
+}
+
+.usageProductSpike .statusItem.accent strong,
+.usageProductSpike .statusItem.warn strong {
+  color: rgb(229 168 23 / 84%);
+}
+
+.usageProductSpike .summaryBand {
+  gap: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 19px;
+  padding: 5px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 1.7%), transparent 48%, rgb(0 0 0 / 4.6%) 100%),
+    var(--spike-inset-fill);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 4.4%),
+    inset 0 -1px 0 rgb(0 0 0 / 7%);
+}
+
+.usageProductSpike .metric {
+  min-height: 108px;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 22% 10%, rgb(255 255 255 / 2%), transparent 36%),
+    linear-gradient(180deg, rgb(255 255 255 / 1.4%), transparent 48%, rgb(0 0 0 / 3.6%) 100%),
+    var(--spike-inset-fill-soft);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 3.2%),
+    inset 0 -1px 0 rgb(0 0 0 / 5.8%);
+}
+
+.usageProductSpike .metric:first-child {
+  border-radius: 16px 0 0 16px;
+}
+
+.usageProductSpike .metric:last-child {
+  border-radius: 0 16px 16px 0;
+}
+
+.usageProductSpike .metric + .metric {
+  border-left: 1px solid var(--spike-divider);
+}
+
+.usageProductSpike .metric strong {
+  color: var(--text-strong);
+}
+
+.usageProductSpike .metric.accent strong,
+.usageProductSpike .metric.warn strong,
+.usageProductSpike .statusItem.accent strong,
+.usageProductSpike .statusItem.warn strong {
+  color: rgb(229 168 23 / 84%);
+}
+
+.usageProductSpike .panel,
+.usageProductSpike .statePanel,
+.usageProductSpike .errorPanel {
+  border: 0;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 18% 8%, rgb(255 255 255 / 3.6%), transparent 34%),
+    linear-gradient(180deg, rgb(255 255 255 / 4%) 0%, transparent 44%, rgb(0 0 0 / 4.8%) 100%),
+    linear-gradient(112deg, rgb(255 255 255 / 2.1%), transparent 54%, rgb(0 0 0 / 1.7%)),
+    var(--spike-panel-fill);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 4%),
+    inset -1px 0 0 rgb(0 0 0 / 3.8%),
+    inset 0 1px 0 rgb(255 255 255 / 7.5%),
+    inset 0 -1px 0 rgb(0 0 0 / 7.5%),
+    0 2px 4px var(--spike-contact-shadow);
+  -webkit-backdrop-filter: blur(10px) saturate(1.03);
+  backdrop-filter: blur(10px) saturate(1.03);
+}
+
+.usageProductSpike .panel:hover {
+  background:
+    radial-gradient(circle at 18% 8%, rgb(255 255 255 / 4.2%), transparent 34%),
+    linear-gradient(180deg, rgb(255 255 255 / 4.6%) 0%, transparent 44%, rgb(0 0 0 / 4.8%) 100%),
+    linear-gradient(112deg, rgb(255 255 255 / 2.4%), transparent 54%, rgb(0 0 0 / 1.7%)),
+    var(--spike-panel-hover);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 4.6%),
+    inset -1px 0 0 rgb(0 0 0 / 3.8%),
+    inset 0 1px 0 rgb(255 255 255 / 8.2%),
+    inset 0 -1px 0 rgb(0 0 0 / 7.5%),
+    0 2px 4px var(--spike-contact-shadow);
+}
+
+.usageProductSpike .panelHead svg {
+  color: rgb(255 248 223 / 52%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .panelHead svg,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .healthRow span svg {
+  color: #8f650d;
+  opacity: 0.66;
+}
+
+.usageProductSpike .inspectorColumn {
+  gap: 0;
+  padding: 9px;
+  border-radius: 21px;
+  background:
+    radial-gradient(circle at 22% 8%, rgb(255 255 255 / 2.4%), transparent 36%),
+    linear-gradient(180deg, rgb(255 255 255 / 1.8%), transparent 48%, rgb(0 0 0 / 5%) 100%),
+    var(--spike-inset-fill);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 4.2%),
+    inset 0 -1px 0 rgb(0 0 0 / 7%);
+}
+
+.usageProductSpike .inspectorColumn .panel {
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.usageProductSpike .inspectorColumn .panel:hover {
+  background:
+    linear-gradient(90deg, transparent, rgb(255 255 255 / 1.6%), transparent);
+  box-shadow: none;
+}
+
+.usageProductSpike .inspectorColumn .panel + .panel {
+  border-top: 1px solid var(--spike-divider);
+}
+
+.usageProductSpike .inspectorColumn .panel:first-child {
+  border-radius: 15px 15px 0 0;
+}
+
+.usageProductSpike .inspectorColumn .panel:last-child {
+  border-radius: 0 0 15px 15px;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .inspectorColumn {
+  background:
+    radial-gradient(circle at 22% 8%, rgb(255 255 255 / 8%), transparent 36%),
+    linear-gradient(180deg, rgb(255 255 255 / 8%), transparent 50%, rgb(86 64 20 / 2%) 100%),
+    var(--spike-inset-fill);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 34%),
+    inset 0 -1px 0 rgb(86 64 20 / 3.8%);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .inspectorColumn .panel {
+  background: transparent;
+  box-shadow: none;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .inspectorColumn .panel:hover {
+  background:
+    linear-gradient(90deg, transparent, rgb(255 255 255 / 8%), transparent);
+}
+
+.usageProductSpike .activityPanel .trend,
+.usageProductSpike .tableWrap,
+.usageProductSpike .modelList,
+.usageProductSpike .healthList,
+.usageProductSpike .reconcileBlock {
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 20% 8%, rgb(255 255 255 / 1.9%), transparent 34%),
+    linear-gradient(180deg, rgb(255 255 255 / 1.9%), transparent 48%, rgb(0 0 0 / 4.8%) 100%),
+    var(--spike-inset-fill);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 3.4%),
+    inset 0 -1px 0 rgb(0 0 0 / 6.5%);
+}
+
+.usageProductSpike .activityPanel .trend {
+  min-height: 232px;
+  padding: 13px 12px 10px;
+}
+
+.usageProductSpike .barTrack {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.usageProductSpike .barFill {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px 999px 8px 8px;
+  background:
+    radial-gradient(circle at 32% 8%, rgb(255 255 255 / 25%), transparent 22%),
+    linear-gradient(90deg, rgb(255 255 255 / 8.5%) 0%, transparent 24%, transparent 66%, rgb(0 0 0 / 6%) 100%),
+    linear-gradient(180deg, rgb(255 255 255 / 12%) 0%, rgb(255 255 255 / 3.4%) 30%, rgb(0 0 0 / 5.5%) 100%),
+    rgb(255 255 255 / 4.8%);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 14%),
+    inset -1px 0 0 rgb(0 0 0 / 7%),
+    inset 0 1px 0 rgb(255 255 255 / 24%),
+    inset 0 -1px 0 rgb(0 0 0 / 11%),
+    0 1px 2px rgb(0 0 0 / 10%);
+}
+
+.usageProductSpike .barFill::after {
+  position: absolute;
+  inset: 0 16% auto 12%;
+  height: 28%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgb(255 255 255 / 32%), transparent);
+  content: "";
+}
+
+.usageProductSpike .trendItem:last-child .barFill::before {
+  position: absolute;
+  inset: 0 10% auto;
+  height: 30%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgb(255 230 160 / 44%), rgb(229 168 23 / 13%) 52%, transparent);
+  content: "";
+}
+
+.usageProductSpike .trendItem:hover .barTrack,
+.usageProductSpike .trendItem:focus-visible .barTrack {
+  background: transparent;
+  box-shadow: none;
+}
+
+.usageProductSpike .trendItem:hover .barFill,
+.usageProductSpike .trendItem:focus-visible .barFill {
+  background:
+    radial-gradient(circle at 32% 8%, rgb(255 255 255 / 30%), transparent 22%),
+    linear-gradient(90deg, rgb(255 255 255 / 10%) 0%, transparent 24%, transparent 66%, rgb(0 0 0 / 6%) 100%),
+    linear-gradient(180deg, rgb(255 255 255 / 14%) 0%, rgb(255 255 255 / 4.4%) 30%, rgb(0 0 0 / 5.5%) 100%),
+    rgb(255 255 255 / 6.2%);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 16%),
+    inset -1px 0 0 rgb(0 0 0 / 7%),
+    inset 0 1px 0 rgb(255 255 255 / 28%),
+    inset 0 -1px 0 rgb(0 0 0 / 11%),
+    0 2px 3px rgb(0 0 0 / 12%);
+}
+
+.usageProductSpike .trendItem span {
+  color: var(--text-muted);
+  opacity: 0.58;
+}
+
+.usageProductSpike .tableWrap {
+  padding: 4px 8px;
+}
+
+.usageProductSpike th {
+  color: var(--text-muted);
+  opacity: 0.56;
+}
+
+.usageProductSpike th,
+.usageProductSpike td {
+  border-bottom-color: var(--spike-divider);
+}
+
+.usageProductSpike td:first-child,
+.usageProductSpike .selectedRow td:first-child {
+  color: var(--text-strong);
+}
+
+.usageProductSpike .selectedRow td,
+.usageProductSpike tbody tr.selectedRow:hover td {
+  background: transparent;
+}
+
+.usageProductSpike tbody tr:hover td {
+  background:
+    linear-gradient(90deg, transparent, rgb(255 255 255 / 2.2%), transparent);
+}
+
+.usageProductSpike tbody tr:hover td:first-child {
+  color: rgb(229 168 23 / 86%);
+}
+
+.usageProductSpike .modelRow:hover,
+.usageProductSpike .modelRow:focus-visible {
+  background:
+    linear-gradient(90deg, transparent, rgb(255 255 255 / 2.2%), transparent);
+  box-shadow: none;
+}
+
+.usageProductSpike .shareTrack {
+  border: 0;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 3.4%), transparent 46%, rgb(0 0 0 / 5%) 100%),
+    rgb(255 255 255 / 5%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 5.2%),
+    inset 0 -1px 0 rgb(0 0 0 / 8%);
+}
+
+.usageProductSpike .shareTrack div,
+.usageProductSpike .modelRow:hover .shareTrack div,
+.usageProductSpike .modelRow:focus-visible .shareTrack div {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 22%), transparent 48%, rgb(0 0 0 / 8%) 100%),
+    linear-gradient(90deg, rgb(255 248 223 / 34%) 0%, rgb(229 168 23 / 38%) 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%);
+}
+
+.usageProductSpike .healthRow {
+  border-bottom-color: var(--spike-divider);
+}
+
+.usageProductSpike .modelRow em {
+  color: var(--text-muted);
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .tableWrap td,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .tableWrap td:not(:first-child),
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .modelRow strong,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .healthRow strong {
+  color: #111008;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .tableWrap th,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .tableWrap .emptyCell {
+  color: #5f5848;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .tableWrap td:first-child,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .tableWrap .selectedRow td:first-child,
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike .modelRow em {
+  color: #111008;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] .usageProductSpike tbody tr:hover td:first-child {
+  color: #9b6507;
+}
+
+.codexUsageGlassSpikeApp ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.codexUsageGlassSpikeApp ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.codexUsageGlassSpikeApp ::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 13%);
+  background-clip: content-box;
+}
+
+.codexUsageGlassSpikeApp ::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 255 255 / 20%);
+  background-clip: content-box;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgb(92 74 32 / 15%);
+  background-clip: content-box;
+}
+
+.codexUsageGlassSpikeApp[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgb(92 74 32 / 22%);
+  background-clip: content-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .usageProductSpike .primaryButton,
+  .usageProductSpike .toolbar input,
+  .codexUsageGlassSpikeApp .navItem.active {
+    transition:
+      background var(--motion-base) var(--ease-out-quart),
+      box-shadow var(--motion-base) var(--ease-out-quart),
+      transform var(--motion-fast) var(--ease-out-quint);
+  }
+}
+
+@media (max-width: 980px) {
+  .usageProductSpike .statusStrip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .usageProductSpike {
+    padding: 14px;
+    border-radius: 24px;
+  }
+
+  .usageProductSpike .statusStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .usageProductSpike .statusItem {
+    border-left: 0;
+    border-top: 1px solid var(--spike-divider);
+  }
+
+  .usageProductSpike .statusItem + .statusItem {
+    border-left: 0;
+  }
+
+  .usageProductSpike .statusItem:first-child {
+    border-top: 0;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .usageProductSpike .statusItem:last-child {
+    border-radius: 0 0 16px 16px;
+  }
+
+  .usageProductSpike .summaryBand {
+    grid-template-columns: 1fr;
+  }
+
+  .usageProductSpike .metric {
+    min-height: 96px;
+    border-left: 0;
+    border-top: 1px solid var(--spike-divider);
+    border-radius: 0;
+  }
+
+  .usageProductSpike .metric + .metric {
+    border-left: 0;
+  }
+
+  .usageProductSpike .metric:first-child {
+    border-top: 0;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .usageProductSpike .metric:last-child {
+    border-radius: 0 0 16px 16px;
+  }
+}
+
+.glassLabApp {
+  display: block;
+  min-height: 100vh;
+  overflow: auto;
+  background:
+    radial-gradient(circle at 18% 10%, rgb(255 251 236 / 5.5%), transparent 27%),
+    radial-gradient(circle at 82% 18%, rgb(248 189 28 / 2.1%), transparent 29%),
+    linear-gradient(118deg, transparent 0 36%, rgb(255 255 255 / 3.4%) 48%, transparent 60% 100%),
+    linear-gradient(180deg, #10110e 0%, #070806 52%, #020302 100%);
+}
+
+.glassLabApp::before {
+  background:
+    linear-gradient(112deg, transparent 0 19%, rgb(255 248 223 / 5%) 30%, transparent 43% 100%),
+    linear-gradient(21deg, transparent 0 64%, rgb(248 189 28 / 2.2%) 73%, transparent 84% 100%);
+  filter: blur(32px) saturate(0.72);
+  opacity: 0.48;
+}
+
+.glassLabApp::after {
+  background:
+    linear-gradient(104deg, transparent 0 40%, rgb(255 255 255 / 5.5%) 49%, transparent 59% 100%),
+    radial-gradient(circle at 24% 86%, rgb(255 248 223 / 3.2%), transparent 28%);
+  filter: blur(36px) saturate(0.72);
+  opacity: 0.4;
+}
+
+.glassLabApp[data-theme="light"] {
+  --text-primary: #252116;
+  --text-strong: #0f0d08;
+  --text-muted: #645c49;
+  --text-muted-low: #7a715c;
+  --accent: #b67800;
+  --accent-hover: #9d6200;
+  background:
+    radial-gradient(circle at 18% 13%, rgb(255 255 255 / 92%), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgb(248 189 28 / 3.4%), transparent 31%),
+    linear-gradient(116deg, transparent 0 36%, rgb(255 255 255 / 42%) 49%, transparent 62% 100%),
+    linear-gradient(180deg, #fffefa 0%, #faf7ef 56%, #f4eedf 100%);
+}
+
+.glassLabApp[data-theme="light"]::before {
+  background:
+    linear-gradient(112deg, transparent 0 18%, rgb(255 255 255 / 46%) 29%, transparent 42% 100%),
+    linear-gradient(23deg, transparent 0 62%, rgb(248 189 28 / 3.6%) 72%, transparent 84% 100%);
+  filter: blur(30px) saturate(0.92);
+  opacity: 0.72;
+}
+
+.glassLabApp[data-theme="light"]::after {
+  background:
+    linear-gradient(104deg, transparent 0 40%, rgb(255 255 255 / 66%) 49%, transparent 59% 100%),
+    radial-gradient(circle at 24% 86%, rgb(255 255 255 / 42%), transparent 28%);
+  filter: blur(34px) saturate(0.86);
+  opacity: 0.52;
+}
+
+.glassLabApp main {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: clamp(24px, 4vw, 56px);
+  background:
+    radial-gradient(circle at 18% 12%, rgb(255 251 235 / 5.2%), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgb(248 189 28 / 2.2%), transparent 30%),
+    linear-gradient(118deg, transparent 0 34%, rgb(255 255 255 / 3.2%) 48%, transparent 61% 100%),
+    linear-gradient(180deg, #10110e 0%, #070805 54%, #020302 100%);
+}
+
+.glassLabApp[data-theme="light"] main {
+  background:
+    radial-gradient(circle at 18% 14%, rgb(255 255 255 / 92%), transparent 29%),
+    radial-gradient(circle at 82% 18%, rgb(248 189 28 / 4%), transparent 31%),
+    linear-gradient(116deg, transparent 0 35%, rgb(255 255 255 / 54%) 49%, transparent 62% 100%),
+    linear-gradient(180deg, #fffefa 0%, #fbf8f1 57%, #f5efe2 100%);
+}
+
+.glassLab {
+  --lab-shell-fill: rgb(255 255 255 / 2.4%);
+  --lab-shell-rim: rgb(255 255 255 / 44%);
+  --lab-shell-rim-soft: rgb(255 248 223 / 10%);
+  --lab-shell-highlight: rgb(255 255 255 / 18%);
+  --lab-shell-lowlight: rgb(0 0 0 / 32%);
+  --lab-shell-shadow: rgb(0 0 0 / 58%);
+  --lab-panel-fill: rgb(255 255 255 / 4.8%);
+  --lab-panel-hover: rgb(255 255 255 / 6.4%);
+  --lab-panel-rim: rgb(255 255 255 / 22%);
+  --lab-inset-fill: rgb(0 0 0 / 20%);
+  --lab-inset-fill-soft: rgb(255 255 255 / 3.2%);
+  --lab-inset-rim: rgb(255 255 255 / 9%);
+  --lab-control-fill: rgb(255 255 255 / 9%);
+  --lab-control-hover: rgb(255 255 255 / 13%);
+  --lab-control-rim: rgb(255 255 255 / 36%);
+  --lab-divider: rgb(255 255 255 / 5.2%);
+  --lab-bar-fill: rgb(255 255 255 / 8%);
+  --lab-bar-rim: rgb(255 255 255 / 28%);
+  --lab-contact-shadow: rgb(0 0 0 / 38%);
+  --lab-amber: #f8bd1c;
+  --lab-amber-low: #a96a00;
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  color: var(--text-primary);
+}
+
+.glassLabApp[data-theme="light"] .glassLab {
+  --lab-shell-fill: rgb(255 255 255 / 26%);
+  --lab-shell-rim: rgb(255 255 255 / 88%);
+  --lab-shell-rim-soft: rgb(99 77 30 / 10%);
+  --lab-shell-highlight: rgb(255 255 255 / 78%);
+  --lab-shell-lowlight: rgb(86 64 20 / 10%);
+  --lab-shell-shadow: rgb(93 70 28 / 18%);
+  --lab-panel-fill: rgb(255 255 255 / 32%);
+  --lab-panel-hover: rgb(255 255 255 / 42%);
+  --lab-panel-rim: rgb(255 255 255 / 72%);
+  --lab-inset-fill: rgb(94 76 34 / 5.5%);
+  --lab-inset-fill-soft: rgb(255 255 255 / 28%);
+  --lab-inset-rim: rgb(94 76 34 / 9%);
+  --lab-control-fill: rgb(255 255 255 / 48%);
+  --lab-control-hover: rgb(255 255 255 / 62%);
+  --lab-control-rim: rgb(255 255 255 / 92%);
+  --lab-divider: rgb(92 74 32 / 7%);
+  --lab-bar-fill: rgb(255 255 255 / 30%);
+  --lab-bar-rim: rgb(255 255 255 / 84%);
+  --lab-contact-shadow: rgb(97 76 35 / 14%);
+  --lab-amber: #f2ad12;
+  --lab-amber-low: #935c00;
+}
+
+.glassLabScene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.glassLabScene span {
+  position: absolute;
+  border-radius: 999px;
+  background: rgb(255 248 223 / 8%);
+  filter: blur(30px);
+  opacity: 0.6;
+}
+
+.glassLabScene span:nth-child(1) {
+  width: 42vw;
+  height: 22vw;
+  top: 7%;
+  left: -8%;
+  transform: rotate(-10deg);
+}
+
+.glassLabScene span:nth-child(2) {
+  width: 34vw;
+  height: 16vw;
+  right: -7%;
+  bottom: 14%;
+  background: rgb(248 189 28 / 4%);
+  transform: rotate(14deg);
+}
+
+.glassLabScene span:nth-child(3) {
+  width: 86vw;
+  height: 18vw;
+  right: 6%;
+  bottom: 20%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 9%), transparent);
+  filter: blur(22px);
+  transform: rotate(-18deg);
+}
+
+.glassLabHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.glassLabHeader span,
+.labShellTop span,
+.labPanelHead span,
+.labGlassInset span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.glassLabHeader h1 {
+  margin-top: 7px;
+  color: var(--text-strong);
+  font-size: 34px;
+}
+
+.glassLabHeader p,
+.labShellTop p,
+.labObjectPanel p {
+  max-width: 62ch;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.glassLabHeaderActions,
+.labControlGroup {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.glassObjectHero {
+  margin-bottom: 26px;
+}
+
+.objectHeroPlate {
+  position: relative;
+  isolation: isolate;
+  min-height: 530px;
+  padding: clamp(22px, 4vw, 42px);
+  overflow: hidden;
+  border-radius: 46px;
+  background:
+    radial-gradient(circle at 20% 16%, rgb(255 255 255 / 3.2%), transparent 31%),
+    radial-gradient(circle at 86% 78%, rgb(248 189 28 / 1.4%), transparent 30%),
+    linear-gradient(180deg, rgb(255 255 255 / 3.2%) 0%, transparent 25%, rgb(0 0 0 / 24%) 100%),
+    linear-gradient(118deg, transparent 0 41%, rgb(255 255 255 / 3.6%) 51%, transparent 61%),
+    var(--lab-shell-fill);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 24%),
+    inset 0 -2px 0 rgb(0 0 0 / 38%),
+    inset 1px 0 0 rgb(255 255 255 / 14%),
+    inset -1px 0 0 rgb(0 0 0 / 20%),
+    0 11px 16px rgb(0 0 0 / 36%),
+    0 34px 54px var(--lab-shell-shadow);
+  -webkit-backdrop-filter: blur(20px) saturate(1.08) contrast(1.04);
+  backdrop-filter: blur(20px) saturate(1.08) contrast(1.04);
+}
+
+.objectHeroPlate::before,
+.objectHeroPlate::after {
+  position: absolute;
+  pointer-events: none;
+  content: "";
+}
+
+.objectHeroPlate::before {
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgb(255 255 255 / 10%), transparent 22%, transparent 70%, rgb(0 0 0 / 22%)),
+    linear-gradient(180deg, rgb(255 255 255 / 5%), transparent 22%, transparent 78%, rgb(0 0 0 / 16%));
+  box-shadow:
+    inset 0 0 0 1px var(--lab-shell-rim),
+    inset 0 0 0 2px var(--lab-shell-rim-soft),
+    inset 0 16px 22px rgb(255 255 255 / 3%),
+    inset 0 -30px 42px rgb(0 0 0 / 28%);
+}
+
+.objectHeroPlate::after {
+  z-index: 0;
+  width: 44%;
+  height: 13%;
+  top: 11%;
+  left: 27%;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent, rgb(255 255 255 / 16%), transparent),
+    linear-gradient(180deg, rgb(255 255 255 / 5%), transparent);
+  filter: blur(14px);
+  opacity: 0.38;
+  transform: rotate(-11deg);
+}
+
+.glassLabApp[data-theme="light"] .objectHeroPlate {
+  background:
+    radial-gradient(circle at 20% 16%, rgb(255 255 255 / 18%), transparent 31%),
+    radial-gradient(circle at 86% 78%, rgb(248 189 28 / 2.4%), transparent 30%),
+    linear-gradient(180deg, rgb(255 255 255 / 16%) 0%, transparent 28%, rgb(86 64 20 / 4.5%) 100%),
+    linear-gradient(118deg, transparent 0 41%, rgb(255 255 255 / 16%) 51%, transparent 61%),
+    var(--lab-shell-fill);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 84%),
+    inset 0 -2px 0 rgb(86 64 20 / 15%),
+    inset 1px 0 0 rgb(255 255 255 / 62%),
+    inset -1px 0 0 rgb(86 64 20 / 8%),
+    0 10px 14px rgb(93 70 28 / 16%),
+    0 28px 50px rgb(93 70 28 / 18%);
+}
+
+.glassLabApp[data-theme="light"] .objectHeroPlate::after {
+  background:
+    linear-gradient(90deg, transparent, rgb(255 255 255 / 36%), transparent),
+    linear-gradient(180deg, rgb(255 255 255 / 14%), transparent);
+  opacity: 0.54;
+}
+
+.glassLabApp[data-theme="light"] .objectHeroPlate::before {
+  background:
+    linear-gradient(135deg, rgb(255 255 255 / 54%), transparent 24%, transparent 72%, rgb(86 64 20 / 8%)),
+    linear-gradient(180deg, rgb(255 255 255 / 18%), transparent 24%, transparent 78%, rgb(86 64 20 / 8%));
+  box-shadow:
+    inset 0 0 0 1px var(--lab-shell-rim),
+    inset 0 0 0 2px var(--lab-shell-rim-soft),
+    inset 0 16px 22px rgb(255 255 255 / 16%),
+    inset 0 -24px 34px rgb(86 64 20 / 10%);
+}
+
+.objectHeroBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.objectHeroBackdrop span {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.34;
+}
+
+.objectHeroBackdrop span:nth-child(1) {
+  width: 210px;
+  height: 50px;
+  top: 132px;
+  left: 30%;
+  background: rgb(255 251 236 / 4.5%);
+  transform: rotate(-14deg);
+}
+
+.objectHeroBackdrop span:nth-child(2) {
+  width: 190px;
+  height: 58px;
+  right: 14%;
+  bottom: 82px;
+  background: rgb(255 255 255 / 5%);
+  transform: rotate(13deg);
+}
+
+.objectHeroBackdrop span:nth-child(3) {
+  width: 340px;
+  height: 34px;
+  right: 21%;
+  top: 210px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 5.8%), transparent);
+  filter: blur(12px);
+  opacity: 0.28;
+  transform: rotate(-19deg);
+}
+
+.objectHeroBackdrop span:nth-child(4) {
+  width: 140px;
+  height: 140px;
+  left: 9%;
+  bottom: 56px;
+  background: rgb(248 189 28 / 2.8%);
+  filter: blur(26px);
+}
+
+.glassLabApp[data-theme="light"] .objectHeroBackdrop span {
+  opacity: 0.42;
+}
+
+.objectHeroPlate > * {
+  position: relative;
+  z-index: 1;
+}
+
+.objectHeroTop {
+  position: absolute;
+  z-index: 2;
+  top: clamp(18px, 3vw, 30px);
+  right: clamp(18px, 3vw, 30px);
+  left: clamp(18px, 3vw, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.objectHeroLabel {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  min-width: 220px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.objectHeroLabel span {
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.objectHeroLabel strong {
+  color: var(--text-strong);
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+.objectMark,
+.objectReadyBadge,
+.objectToggleChip,
+.objectCapsule,
+.objectCircleButton,
+.objectSearch,
+.objectInviteCard {
+  position: relative;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(18px) saturate(1.16) contrast(1.02);
+  backdrop-filter: blur(18px) saturate(1.16) contrast(1.02);
+}
+
+.objectMark {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  color: #141006;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 54%) 0%, transparent 42%, rgb(0 0 0 / 12%) 100%),
+    linear-gradient(180deg, #ffe7a1, var(--lab-amber) 68%, var(--lab-amber-low));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 84%),
+    inset 0 -1px 0 rgb(0 0 0 / 22%),
+    0 8px 12px var(--lab-contact-shadow);
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.objectHeroStatus {
+  display: flex;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.objectHeroMain {
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  max-width: 680px;
+  padding-top: 58px;
+}
+
+.objectControlBoard {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.42fr);
+  align-items: end;
+  gap: clamp(18px, 4vw, 42px);
+  min-height: 420px;
+  padding-top: 70px;
+}
+
+.objectControlStack {
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  max-width: 670px;
+  transform: translateY(12px);
+}
+
+.objectHeroCopy span,
+.labStressIntro span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.objectHeroCopy h2,
+.labStressIntro h2 {
+  margin: 8px 0 0;
+  color: var(--text-strong);
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.objectHeroCopy p,
+.labStressIntro p {
+  max-width: 58ch;
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.objectSearchRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.objectSearch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 610px);
+  min-height: 76px;
+  padding: 0 24px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  background:
+    radial-gradient(circle at 17% 10%, rgb(255 255 255 / 22%), transparent 30%),
+    linear-gradient(180deg, rgb(255 255 255 / 30%) 0%, transparent 42%, rgb(0 0 0 / 18%) 100%),
+    linear-gradient(90deg, rgb(255 255 255 / 8%), transparent 50%, rgb(0 0 0 / 7%)),
+    var(--lab-control-fill);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 20%),
+    inset -1px 0 0 rgb(0 0 0 / 14%),
+    inset 0 1px 0 var(--lab-control-rim),
+    inset 0 -3px 0 rgb(0 0 0 / 24%),
+    inset 18px 0 28px rgb(255 255 255 / 4%),
+    0 7px 9px rgb(0 0 0 / 28%),
+    0 13px 18px rgb(0 0 0 / 18%);
+}
+
+.objectSearch input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--text-strong);
+  background: transparent;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.objectControlRow,
+.objectCapsules {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.primaryRow {
+  margin-left: 18px;
+}
+
+.secondaryRow {
+  margin-left: 88px;
+  align-items: center;
+}
+
+.objectCapsule,
+.objectCircleButton,
+.objectReadyBadge,
+.objectToggleChip,
+.objectSegmented {
+  border: 0;
+  color: var(--text-strong);
+  background:
+    radial-gradient(circle at 22% 10%, rgb(255 255 255 / 22%), transparent 34%),
+    linear-gradient(180deg, rgb(255 255 255 / 28%) 0%, transparent 43%, rgb(0 0 0 / 18%) 100%),
+    linear-gradient(90deg, rgb(255 255 255 / 6%), transparent 52%, rgb(0 0 0 / 7%)),
+    var(--lab-control-fill);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 15%),
+    inset -1px 0 0 rgb(0 0 0 / 12%),
+    inset 0 1px 0 var(--lab-control-rim),
+    inset 0 -3px 0 rgb(0 0 0 / 24%),
+    0 6px 8px rgb(0 0 0 / 26%),
+    0 11px 15px rgb(0 0 0 / 16%);
+  font-weight: 880;
+}
+
+.objectCapsule {
+  min-height: 64px;
+  padding: 0 26px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.objectCapsule.primary,
+.labPrimaryButton {
+  color: #151007;
+  background:
+    radial-gradient(circle at 28% 10%, rgb(255 255 255 / 42%), transparent 28%),
+    linear-gradient(180deg, rgb(255 255 255 / 68%) 0%, rgb(255 255 255 / 22%) 20%, transparent 48%, rgb(116 66 0 / 11%) 100%),
+    linear-gradient(90deg, rgb(255 246 203 / 20%), transparent 48%, rgb(126 70 0 / 8%)),
+    linear-gradient(180deg, #ffe8a6 0%, #ffc94a 52%, #f8bd1c 82%, #c88408 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 88%),
+    inset 0 -2px 0 rgb(106 59 0 / 22%),
+    inset 12px 0 24px rgb(255 255 255 / 14%),
+    inset -12px 0 18px rgb(108 62 0 / 9%),
+    0 7px 9px rgb(0 0 0 / 30%),
+    0 13px 16px rgb(0 0 0 / 14%);
+}
+
+.objectCapsule.secondary {
+  min-width: 142px;
+}
+
+.objectCapsule.neutral {
+  min-width: 148px;
+}
+
+.objectCapsule.compact {
+  min-height: 46px;
+  width: fit-content;
+  padding: 0 18px;
+}
+
+.objectReadyBadge {
+  display: inline-grid;
+  place-items: center;
+  min-height: 42px;
+  padding: 0 17px;
+  border-radius: 999px;
+  color: #171108;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 60%) 0%, transparent 45%, rgb(88 48 0 / 16%) 100%),
+    linear-gradient(180deg, #ffe7a1, var(--lab-amber) 70%, var(--lab-amber-low));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 88%),
+    inset 0 -1px 0 rgb(0 0 0 / 22%),
+    0 6px 10px var(--lab-contact-shadow);
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.objectToggleChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 52px;
+  padding: 0 17px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.objectToggleChip > span {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 7px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 66%), transparent 52%, rgb(0 0 0 / 18%)),
+    var(--lab-amber);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 80%),
+    inset 0 -1px 0 rgb(0 0 0 / 22%),
+    0 3px 5px rgb(0 0 0 / 20%);
+}
+
+.objectCircleButton {
+  display: inline-grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.objectCircleButton.plus {
+  width: 78px;
+  height: 78px;
+  color: #151007;
+  background:
+    radial-gradient(circle at 30% 10%, rgb(255 255 255 / 48%), transparent 28%),
+    linear-gradient(180deg, rgb(255 255 255 / 64%) 0%, transparent 42%, rgb(70 38 0 / 12%) 100%),
+    linear-gradient(180deg, #ffe8a6, #ffc94a 62%, #cc890a);
+}
+
+.objectFloatingPlus {
+  position: absolute;
+  z-index: 4;
+  right: 34%;
+  top: 45%;
+}
+
+.objectInviteCard {
+  align-self: center;
+  display: grid;
+  gap: 8px;
+  min-height: 210px;
+  padding: 28px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 80% 22%, rgb(248 189 28 / 4%), transparent 30%),
+    radial-gradient(circle at 22% 9%, rgb(255 255 255 / 13%), transparent 30%),
+    linear-gradient(180deg, rgb(255 255 255 / 12%) 0%, transparent 42%, rgb(0 0 0 / 18%) 100%),
+    linear-gradient(118deg, rgb(255 255 255 / 7%), transparent 48%, rgb(0 0 0 / 6%)),
+    var(--lab-panel-fill);
+  box-shadow:
+    inset 1px 0 0 rgb(255 255 255 / 13%),
+    inset -1px 0 0 rgb(0 0 0 / 10%),
+    inset 0 1px 0 var(--lab-panel-rim),
+    inset 0 -3px 0 rgb(0 0 0 / 22%),
+    0 8px 10px rgb(0 0 0 / 28%),
+    0 14px 18px rgb(0 0 0 / 14%);
+}
+
+.objectInviteCard span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.objectInviteCard strong {
+  color: var(--text-strong);
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.objectInviteCard small {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.objectSegmented {
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 5px;
+  border-radius: 999px;
+  gap: 4px;
+}
+
+.objectSegmented button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 14px;
+  color: var(--text-muted);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 850;
+}
+
+.objectSegmented button.current {
+  color: var(--text-strong);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 30%), transparent 44%, rgb(0 0 0 / 14%)),
+    var(--lab-control-hover);
+  box-shadow:
+    inset 0 1px 0 var(--lab-control-rim),
+    inset 0 -2px 0 rgb(0 0 0 / 18%),
+    0 4px 6px rgb(0 0 0 / 16%);
+}
+
+.labStressSection {
+  display: grid;
+  gap: 16px;
+}
+
+.labStressIntro {
+  max-width: 760px;
+}
+
+.labStressIntro h2 {
+  font-size: clamp(26px, 3.8vw, 40px);
+}
+
+.labGlassShell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 20% 10%, rgb(255 255 255 / 4.5%), transparent 32%),
+    linear-gradient(180deg, rgb(255 255 255 / 7%) 0%, transparent 25%, var(--lab-shell-lowlight) 100%),
+    linear-gradient(124deg, transparent 0 44%, rgb(255 255 255 / 6.5%) 54%, transparent 67% 100%),
+    var(--lab-shell-fill);
+  box-shadow:
+    inset 0 1px 0 var(--lab-shell-highlight),
+    inset 0 -2px 0 var(--lab-shell-lowlight),
+    inset 1px 0 0 rgb(255 255 255 / 10%),
+    inset -1px 0 0 rgb(255 255 255 / 5%),
+    0 13px 18px rgb(0 0 0 / 28%),
+    0 34px 54px var(--lab-shell-shadow);
+  -webkit-backdrop-filter: blur(20px) saturate(1.1) contrast(1.03);
+  backdrop-filter: blur(20px) saturate(1.1) contrast(1.03);
+}
+
+.labGlassShell::before,
+.labGlassShell::after {
+  position: absolute;
+  pointer-events: none;
+  content: "";
+}
+
+.labGlassShell::before {
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--lab-shell-rim),
+    inset 0 0 0 2px var(--lab-shell-rim-soft);
+}
+
+.labGlassShell::after {
+  z-index: 0;
+  top: 2px;
+  right: 9%;
+  left: 9%;
+  height: 21%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 13%), transparent);
+  filter: blur(16px);
+  opacity: 0.52;
+}
+
+.glassLabApp[data-theme="light"] .labGlassShell {
+  background:
+    radial-gradient(circle at 20% 10%, rgb(255 255 255 / 30%), transparent 32%),
+    linear-gradient(180deg, var(--lab-shell-highlight) 0%, transparent 25%, var(--lab-shell-lowlight) 100%),
+    linear-gradient(124deg, transparent 0 44%, rgb(255 255 255 / 24%) 54%, transparent 67% 100%),
+    var(--lab-shell-fill);
+}
+
+.glassLabApp[data-theme="light"] .labGlassShell::after {
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 42%), transparent);
+  opacity: 0.62;
+}
+
+.labGlassShell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.labShellTop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.labShellTop h2 {
+  margin-top: 5px;
+  color: var(--text-strong);
+  font-size: 24px;
+}
+
+.labControlGroup {
+  max-width: 430px;
+  padding: 8px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 8%), transparent 48%, rgb(0 0 0 / 12%) 100%),
+    var(--lab-inset-fill);
+  box-shadow:
+    inset 0 1px 0 var(--lab-inset-rim),
+    inset 0 -2px 0 rgb(0 0 0 / 18%);
+}
+
+.labControlGroup label {
+  display: grid;
+  gap: 6px;
+  min-width: 160px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.labControlGroup input {
+  width: 160px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 15px;
+  color: var(--text-strong);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 38%) 0%, transparent 42%, rgb(0 0 0 / 15%) 100%),
+    var(--lab-control-fill);
+  box-shadow:
+    inset 0 1px 0 var(--lab-control-rim),
+    inset 0 -2px 0 rgb(0 0 0 / 22%),
+    0 6px 9px var(--lab-contact-shadow);
+  -webkit-backdrop-filter: blur(18px) saturate(1.12);
+  backdrop-filter: blur(18px) saturate(1.12);
+  font-weight: 800;
+}
+
+.labReadyBadge,
+.labChip {
+  display: inline-grid;
+  place-items: center;
+  min-height: 34px;
+  padding: 0 13px;
+  border-radius: 999px;
+  color: var(--text-strong);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 34%) 0%, transparent 44%, rgb(0 0 0 / 15%) 100%),
+    var(--lab-control-fill);
+  box-shadow:
+    inset 0 1px 0 var(--lab-control-rim),
+    inset 0 -2px 0 rgb(0 0 0 / 22%),
+    0 6px 9px var(--lab-contact-shadow);
+  -webkit-backdrop-filter: blur(18px) saturate(1.12);
+  backdrop-filter: blur(18px) saturate(1.12);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.labReadyBadge {
+  color: #111008;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 60%) 0%, transparent 44%, rgb(86 46 0 / 16%) 100%),
+    linear-gradient(180deg, #ffe7a1 0%, var(--lab-amber) 68%, var(--lab-amber-low) 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 86%),
+    inset 0 -2px 0 rgb(0 0 0 / 24%),
+    0 6px 9px var(--lab-contact-shadow);
+}
+
+.labGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.labGlassPanel {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 11%) 0%, transparent 38%, rgb(0 0 0 / 12%) 100%),
+    linear-gradient(112deg, rgb(255 255 255 / 5%), transparent 54%, rgb(0 0 0 / 4%)),
+    var(--lab-panel-fill);
+  box-shadow:
+    inset 0 1px 0 var(--lab-panel-rim),
+    inset 0 -2px 0 rgb(0 0 0 / 18%),
+    0 7px 10px var(--lab-contact-shadow);
+  -webkit-backdrop-filter: blur(14px) saturate(1.06);
+  backdrop-filter: blur(14px) saturate(1.06);
+}
+
+.labGlassPanel::before {
+  position: absolute;
+  inset: 1px;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(112deg, transparent 0 58%, rgb(255 255 255 / 7%) 70%, transparent 84%),
+    linear-gradient(180deg, rgb(255 255 255 / 8%), transparent 36%);
+  content: "";
+}
+
+.labGlassPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.labGlassPanel:hover {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 12%) 0%, transparent 38%, rgb(0 0 0 / 12%) 100%),
+    linear-gradient(112deg, rgb(255 255 255 / 6%), transparent 54%, rgb(0 0 0 / 4%)),
+    var(--lab-panel-hover);
+}
+
+.labPanelHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.labPanelHead strong {
+  color: var(--text-strong);
+  font-size: 14px;
+}
+
+.labInsetGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 5%), transparent 42%, rgb(0 0 0 / 10%) 100%),
+    var(--lab-inset-fill);
+  box-shadow:
+    inset 0 1px 0 var(--lab-inset-rim),
+    inset 0 -2px 0 rgb(0 0 0 / 16%);
+}
+
+.labGlassInset {
+  min-width: 0;
+  padding: 16px;
+}
+
+.labGlassInset + .labGlassInset {
+  border-left: 1px solid var(--lab-divider);
+}
+
+.labGlassInset strong {
+  display: block;
+  margin: 10px 0 6px;
+  color: var(--accent);
+  font-size: 25px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.labGlassInset small {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.labChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+  height: 220px;
+  padding: 14px;
+  overflow: hidden;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 20% 8%, rgb(255 255 255 / 5%), transparent 34%),
+    linear-gradient(180deg, rgb(255 255 255 / 4.5%), transparent 44%, rgb(0 0 0 / 10%) 100%),
+    var(--lab-inset-fill);
+  box-shadow:
+    inset 0 1px 0 var(--lab-inset-rim),
+    inset 0 -2px 0 rgb(0 0 0 / 16%);
+}
+
+.labChart span {
+  position: relative;
+  flex: 1;
+  min-width: 18px;
+  height: var(--bar-height);
+  overflow: hidden;
+  border-radius: 999px 999px 10px 10px;
+  background:
+    radial-gradient(circle at 32% 8%, rgb(255 255 255 / 48%), transparent 22%),
+    linear-gradient(90deg, rgb(255 255 255 / 18%) 0%, transparent 22%, transparent 64%, rgb(0 0 0 / 12%) 100%),
+    linear-gradient(180deg, rgb(255 255 255 / 25%) 0%, rgb(255 255 255 / 7%) 28%, rgb(0 0 0 / 12%) 100%),
+    var(--lab-bar-fill);
+  box-shadow:
+    inset 1px 0 0 var(--lab-bar-rim),
+    inset -1px 0 0 rgb(0 0 0 / 13%),
+    inset 0 1px 0 rgb(255 255 255 / 46%),
+    inset 0 -2px 0 rgb(0 0 0 / 24%),
+    0 4px 6px rgb(0 0 0 / 20%);
+  -webkit-backdrop-filter: blur(8px) saturate(1.08);
+  backdrop-filter: blur(8px) saturate(1.08);
+}
+
+.labChart span::after {
+  position: absolute;
+  inset: 0 16% auto 12%;
+  height: 28%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgb(255 255 255 / 46%), transparent);
+  content: "";
+}
+
+.labChart span.current::before {
+  position: absolute;
+  inset: 0 10% auto 10%;
+  height: 30%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgb(255 230 160 / 82%), rgb(248 189 28 / 28%) 52%, transparent);
+  box-shadow: 0 2px 8px rgb(248 189 28 / 12%);
+  content: "";
+}
+
+.labTable {
+  overflow: hidden;
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 4.5%), transparent 48%, rgb(0 0 0 / 8%) 100%),
+    var(--lab-inset-fill);
+  box-shadow:
+    inset 0 1px 0 var(--lab-inset-rim),
+    inset 0 -2px 0 rgb(0 0 0 / 14%);
+}
+
+.labTableRow {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--lab-divider);
+}
+
+.labTableRow:last-child {
+  border-bottom: 0;
+}
+
+.labTableRow:hover {
+  background:
+    linear-gradient(90deg, transparent, rgb(255 255 255 / 5%), transparent);
+}
+
+.labTableRow strong {
+  color: var(--text-strong);
+  font-size: 13px;
+}
+
+.labTableRow span,
+.labTableRow em {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.labTableRow em {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.labObjectPanel {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.labObjectPanel p {
+  margin-top: 0;
+}
+
+.labPrimaryButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  color: #111008;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 62%) 0%, rgb(255 255 255 / 24%) 18%, transparent 45%, rgb(96 50 0 / 18%) 100%),
+    linear-gradient(90deg, rgb(255 246 203 / 24%), transparent 48%, rgb(126 70 0 / 12%)),
+    linear-gradient(180deg, #ffe6a0 0%, #ffc53e 46%, var(--lab-amber) 72%, var(--lab-amber-low) 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 88%),
+    inset 0 -2px 0 rgb(80 43 0 / 30%),
+    inset 10px 0 22px rgb(255 255 255 / 13%),
+    inset -12px 0 18px rgb(108 62 0 / 13%),
+    0 8px 12px rgb(0 0 0 / 30%);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.labPrimaryButton.large {
+  min-height: 54px;
+  width: min(100%, 260px);
+  font-size: 16px;
+}
+
+.labPrimaryButton:hover {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 68%) 0%, rgb(255 255 255 / 28%) 18%, transparent 45%, rgb(96 50 0 / 18%) 100%),
+    linear-gradient(90deg, rgb(255 246 203 / 28%), transparent 48%, rgb(126 70 0 / 12%)),
+    linear-gradient(180deg, #ffedba 0%, #ffd360 46%, #fac12c 72%, #b36e00 100%);
+  transform: translateY(-1px);
+}
+
+.labPrimaryButton:active {
+  transform: translateY(1px) scale(0.986);
+  box-shadow:
+    inset 0 2px 4px rgb(0 0 0 / 24%),
+    inset 0 -1px 0 rgb(255 255 255 / 32%),
+    0 3px 5px rgb(0 0 0 / 20%);
+}
+
+.objectCapsule:hover,
+.objectCircleButton:hover,
+.objectReadyBadge:hover,
+.objectToggleChip:hover,
+.objectSearch:hover,
+.objectSegmented:hover {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 38%) 0%, transparent 44%, rgb(0 0 0 / 14%) 100%),
+    linear-gradient(90deg, rgb(255 255 255 / 6%), transparent 52%, rgb(0 0 0 / 5%)),
+    var(--lab-control-hover);
+  transform: translateY(-2px);
+}
+
+.objectCapsule.primary:hover,
+.objectCircleButton.plus:hover {
+  background:
+    radial-gradient(circle at 28% 10%, rgb(255 255 255 / 48%), transparent 28%),
+    linear-gradient(180deg, rgb(255 255 255 / 72%) 0%, rgb(255 255 255 / 26%) 20%, transparent 48%, rgb(116 66 0 / 11%) 100%),
+    linear-gradient(90deg, rgb(255 246 203 / 22%), transparent 48%, rgb(126 70 0 / 8%)),
+    linear-gradient(180deg, #fff0bd 0%, #ffd15d 52%, #fac32b 82%, #d28d0a 100%);
+}
+
+.objectReadyBadge:hover {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 64%) 0%, transparent 45%, rgb(88 48 0 / 16%) 100%),
+    linear-gradient(180deg, #fff0bd, var(--lab-amber) 70%, var(--lab-amber-low));
+}
+
+.objectCapsule:active,
+.objectCircleButton:active {
+  transform: translateY(1px) scale(0.982);
+  box-shadow:
+    inset 0 2px 5px rgb(0 0 0 / 22%),
+    inset 0 -1px 0 rgb(255 255 255 / 34%),
+    0 3px 5px rgb(0 0 0 / 20%);
+}
+
+.objectCapsule:focus-visible,
+.objectCircleButton:focus-visible,
+.objectSegmented button:focus-visible,
+.labPrimaryButton:focus-visible,
+.labControlGroup input:focus-visible,
+.objectSearch:focus-within {
+  outline: 2px solid rgb(248 189 28 / 70%);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .labPrimaryButton,
+  .objectCapsule,
+  .objectCircleButton,
+  .objectReadyBadge,
+  .objectToggleChip,
+  .objectSearch,
+  .objectSegmented,
+  .objectSegmented button,
+  .labControlGroup input,
+  .labReadyBadge,
+  .labChip,
+  .labGlassPanel,
+  .labTableRow {
+    transition:
+      background var(--motion-base) var(--ease-out-quart),
+      box-shadow var(--motion-base) var(--ease-out-quart),
+      transform var(--motion-fast) var(--ease-out-quint);
+  }
+
+  .labPrimaryButton:hover,
+  .labControlGroup input:hover,
+  .labReadyBadge:hover,
+  .labChip:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 940px) {
+  .glassLabHeader,
+  .labShellTop {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .glassLabHeader {
+    display: grid;
+  }
+
+  .glassLabHeaderActions,
+  .labControlGroup {
+    justify-content: flex-start;
+  }
+
+  .labGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .objectHeroPlate {
+    min-height: auto;
+  }
+
+  .objectControlBoard {
+    grid-template-columns: 1fr;
+    padding-top: 76px;
+  }
+
+  .objectControlStack {
+    max-width: none;
+  }
+
+  .objectInviteCard {
+    align-self: stretch;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 680px) {
+  .glassLabApp main {
+    padding: 18px;
+  }
+
+  .labGlassShell {
+    padding: 14px;
+    border-radius: 24px;
+  }
+
+  .objectHeroPlate {
+    padding: 18px;
+    border-radius: 30px;
+  }
+
+  .objectHeroTop {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .objectHeroLabel {
+    min-width: 0;
+    justify-items: start;
+  }
+
+  .objectHeroLabel strong {
+    font-size: 14px;
+  }
+
+  .objectControlBoard {
+    gap: 18px;
+    min-height: auto;
+    padding-top: 0;
+  }
+
+  .objectControlStack {
+    transform: none;
+  }
+
+  .primaryRow,
+  .secondaryRow {
+    margin-left: 0;
+  }
+
+  .objectSearch,
+  .objectCapsule,
+  .objectCapsule.secondary,
+  .objectCapsule.neutral,
+  .objectCapsule.compact,
+  .objectSegmented {
+    width: 100%;
+  }
+
+  .objectFloatingPlus {
+    position: static;
+    width: 64px;
+    height: 64px;
+  }
+
+  .objectSegmented {
+    justify-content: space-between;
+  }
+
+  .labControlGroup,
+  .labControlGroup label,
+  .labControlGroup input,
+  .labPrimaryButton.large {
+    width: 100%;
+  }
+
+  .labInsetGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .labGlassInset + .labGlassInset {
+    border-left: 0;
+    border-top: 1px solid var(--lab-divider);
+  }
+
+  .labTableRow {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 4px;
+    padding: 12px 14px;
+  }
+}
+
+@keyframes workspaceEnter {
+  from {
+    opacity: 0.82;
+    filter: blur(5px) saturate(0.92);
+    transform: translateY(10px) scale(0.992);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0) saturate(1);
+    transform: translateY(0);
+  }
+}
+
+@keyframes itemEnter {
+  from {
+    opacity: 0.86;
+    filter: blur(3px) saturate(0.94);
+    transform: translateY(8px) scale(0.988);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0) saturate(1);
+    transform: translateY(0);
+  }
+}
+
+@keyframes glassSheen {
+  from {
+    transform: translateX(-72%) skewX(-16deg);
+  }
+
+  to {
+    transform: translateX(176%) skewX(-16deg);
+  }
+}
+
+@keyframes barGrow {
+  from {
+    transform: scaleY(0.12);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes shareGrow {
+  from {
+    transform: scaleX(0.08);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes refreshSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes skeletonSweep {
+  from {
+    background-position: 160% 0;
+  }
+
+  to {
+    background-position: -80% 0;
+  }
+}
+
+@keyframes scanPulse {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 1px #4a3b13;
+  }
+
+  50% {
+    box-shadow: inset 0 0 0 1px #f8bd1c;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skipLink,
+  .primaryButton,
+  .primaryButton::after,
+  .secondaryButton,
+  .secondaryButton::after,
+  .navItem,
+  .toolbar input,
+  .runBadge,
+  .statusItem,
+  .toolRow,
+  .toolDetailTray,
+  .toolDetailTray dl,
+  .metric,
+  .panel,
+  .barTrack,
+  .barFill,
+  .barDetail,
+  .modelRow,
+  .modelDetail,
+  .shareTrack,
+  .shareTrack div,
+  tbody td {
+    transition:
+      background var(--motion-base) var(--ease-out-quart),
+      border-color var(--motion-base) var(--ease-out-quart),
+      backdrop-filter var(--motion-glass) var(--ease-out-quart),
+      box-shadow var(--motion-base) var(--ease-out-quart),
+      color var(--motion-base) var(--ease-out-quart),
+      filter var(--motion-base) var(--ease-out-quart),
+      grid-template-rows var(--motion-base) var(--ease-out-quart),
+      max-height var(--motion-base) var(--ease-out-quart),
+      opacity var(--motion-base) var(--ease-out-quart),
+      padding var(--motion-base) var(--ease-out-quart),
+      translate var(--motion-fast) var(--ease-out-quint),
+      transform var(--motion-fast) var(--ease-out-quint);
+  }
+
+  .primaryButton:hover:not(:disabled):not(:active),
+  .secondaryButton:hover:not(:active),
+  .navItem:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  .primaryButton:active:not(:disabled),
+  .secondaryButton:active {
+    transform: translateY(1px) scale(0.986);
+  }
+
+  .primaryButton:hover:not(:disabled)::after,
+  .secondaryButton:hover::after {
+    animation: glassSheen var(--motion-glass-slow) var(--ease-out-expo) both;
+  }
+
+  .toolRow.ready:hover {
+    transform: translateY(-2px) scale(1.006);
+  }
+
+  .panel:hover,
+  .metric:hover,
+  .statusItem:hover {
+    transform: translateY(-2px) scale(1.003);
+  }
+
+  .toolRow.ready:hover .toolDetailTray,
+  .toolRow.ready:focus-within .toolDetailTray {
+    transform: translateY(2px);
+  }
+
+  .trendItem:hover .barTrack,
+  .trendItem:focus-visible .barTrack {
+    transform: translateY(-3px) scaleY(1.045);
+  }
+
+  .modelRow:hover .shareTrack,
+  .modelRow:focus-visible .shareTrack {
+    transform: scaleY(1.55);
+  }
+
+  .primaryButton.loading svg,
+  .loadingState svg {
+    animation: refreshSpin 900ms linear infinite;
+  }
+
+  .runBadge.scan {
+    animation: scanPulse 1200ms var(--ease-out-quart) infinite;
+  }
+
+  .pageHeader {
+    animation: workspaceEnter var(--motion-glass) var(--ease-out-expo) both;
+  }
+
+  .statusStrip,
+  .statePanel,
+  .errorPanel {
+    animation: workspaceEnter var(--motion-glass) var(--ease-out-expo) both;
+    animation-delay: 35ms;
+  }
+
+  .workspaceGrid,
+  .libraryWorkspace {
+    animation: workspaceEnter var(--motion-glass-slow) var(--ease-out-expo) both;
+    animation-delay: 70ms;
+  }
+
+  .toolRow {
+    animation: itemEnter var(--motion-glass) var(--ease-out-expo) backwards;
+  }
+
+  .toolRow:nth-child(1) {
+    animation-delay: 60ms;
+  }
+
+  .toolRow:nth-child(2) {
+    animation-delay: 80ms;
+  }
+
+  .toolRow:nth-child(3) {
+    animation-delay: 100ms;
+  }
+
+  .toolRow:nth-child(4) {
+    animation-delay: 120ms;
+  }
+
+  .toolRow:nth-child(5) {
+    animation-delay: 140ms;
+  }
+
+  .barFill {
+    animation: barGrow var(--motion-glass) var(--ease-out-expo) both;
+    animation-delay: var(--bar-delay, 80ms);
+  }
+
+  .shareTrack div {
+    animation: shareGrow var(--motion-glass) var(--ease-out-quint) both;
+    animation-delay: var(--share-delay, 90ms);
+  }
+
+  .skeletonRows span {
+    background: linear-gradient(90deg, #262316 0%, #3a321c 46%, #262316 92%);
+    background-size: 220% 100%;
+    animation: skeletonSweep 1200ms var(--ease-out-quart) infinite;
+  }
+
+  .skeletonRows span:nth-child(2) {
+    animation-delay: 90ms;
+  }
+
+  .skeletonRows span:nth-child(3) {
+    animation-delay: 180ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .primaryButton:hover:not(:disabled),
+  .secondaryButton:hover,
+  .navItem:hover:not(:disabled),
+  .panel:hover,
+  .metric:hover,
+  .statusItem:hover,
+  .toolRow.ready:hover,
+  .toolRow.ready:hover .toolDetailTray,
+  .toolRow.ready:focus-within .toolDetailTray,
+  .trendItem:hover .barTrack,
+  .trendItem:focus-visible .barTrack,
+  .modelRow:hover .shareTrack,
+  .modelRow:focus-visible .shareTrack,
+  .primaryButton:active:not(:disabled),
+  .secondaryButton:active {
+    translate: none;
+    transform: none;
+  }
+
+  .barDetail,
+  .trendItem:hover .barDetail,
+  .trendItem:focus-visible .barDetail {
+    transform: translateX(-50%);
+  }
+
+  .trendItem:first-child .barDetail,
+  .trendItem:first-child:hover .barDetail,
+  .trendItem:first-child:focus-visible .barDetail,
+  .trendItem:last-child .barDetail,
+  .trendItem:last-child:hover .barDetail,
+  .trendItem:last-child:focus-visible .barDetail {
+    transform: none;
+  }
+}
+
+@media (max-width: 1180px) {
+  .workspaceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .libraryWorkspace {
+    grid-template-columns: 1fr;
+  }
+
+  .summaryBand {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .statusStrip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .inspectorColumn {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .libraryAside {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+@media (max-width: 940px) {
+  .appShell {
+    grid-template-columns: 1fr;
+  }
+
+  .toolRail {
+    border-right: 0;
+    border-bottom: 1px solid #302a16;
+  }
+
+  nav {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .railNote,
+  .workspaceOnly,
+  .railFooter {
+    display: none;
+  }
+
+  .pageHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .libraryFocus {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    justify-content: flex-start;
+  }
+
+  .statusStrip,
+  .summaryBand,
+  .repoCountGrid,
+  .inspectorColumn,
+  .libraryAside {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .toolRow {
+    grid-template-columns: 20px minmax(0, 1fr);
+  }
+
+  .toolRow code,
+  .toolRow > span {
+    grid-column: 2;
+  }
+
+  .toolRow .secondaryButton,
+  .toolRow em {
+    grid-column: 2;
+    grid-row: auto;
+    justify-self: start;
+  }
+
+  .toolDetailTray {
+    grid-column: 2;
+  }
+
+  .toolDetailTray dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  main {
+    padding: 16px;
+  }
+
+  .statusStrip,
+  .summaryBand,
+  .repoCountGrid,
+  .inspectorColumn,
+  .libraryAside {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    grid-template-columns: 1fr;
+  }
+
+  .topBar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .toolbar,
+  .toolbar label,
+  .toolbar input,
+  .primaryButton {
+    width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 46px;
+  }
+
+  .toolRow {
+    grid-template-columns: 20px minmax(0, 1fr);
+  }
+
+  .toolRow code,
+  .toolRow > span,
+  .toolRow .secondaryButton,
+  .toolRow em {
+    grid-column: 2;
+    grid-row: auto;
+    justify-self: start;
+  }
+
+  .toolDetailTray {
+    grid-column: 2;
+  }
+
+  .toolDetailTray dl {
+    grid-template-columns: 1fr;
+  }
+
+  .libraryEssentials {
+    grid-template-columns: 1fr;
+  }
+
+  .healthRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .healthRow strong {
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .usageGlassShell .panel:hover,
+  .usageGlassShell .metric:hover,
+  .usageGlassShell .statusItem:hover {
+    transform: none;
+  }
+
+  .usageGlassShell .primaryButton:hover:not(:disabled):not(:active),
+  .usageGlassShell .toolbar input:hover {
+    transform: translateY(-1px);
+  }
+
+  .usageGlassShell .primaryButton:active:not(:disabled) {
+    transform: translateY(1px) scale(0.986);
+  }
+}

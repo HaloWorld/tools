@@ -1,24 +1,32 @@
-#!/usr/bin/env sh
+#!/bin/sh
 set -eu
 
 case "${1:-}" in
   -h|--help)
     echo "Usage:"
     echo "  ut-codex-usage"
+    echo "  ut-codex-usage all"
+    echo "  ut-codex-usage all --profile-total 18.4B"
     echo "  ut-codex-usage --from YYYY-MM-DD --to YYYY-MM-DD"
     echo "  ut-codex-usage --json"
+    echo "  ut-codex-usage doctor"
+    echo "  ut-codex-usage --doctor"
     echo
     echo "Default: current month."
+    echo "'all' reports the full available history."
+    echo "'doctor' checks installation paths without parsing local logs."
+    echo "--profile-total scales local-log results to a Codex Profile lifetime total."
     echo "Reads local Codex logs from ~/.codex unless --codex-home is provided."
     exit 0
     ;;
 esac
 
 repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-script="$repo_dir/tools/codex-usage/codex_usage_range_report.py"
+binary="$repo_dir/target/release/ut-codex-usage"
 
-if [ "$#" -eq 0 ]; then
-  exec python3 "$script" --from "$(date +%Y-%m-01)"
+if [ ! -x "$binary" ]; then
+  echo "ERROR: missing Rust binary. Run: $repo_dir/install" >&2
+  exit 1
 fi
 
-exec python3 "$script" "$@"
+exec "$binary" "$@"

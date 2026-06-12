@@ -1,8 +1,12 @@
 name = "codex-usage"
 command = "ut-codex-usage"
 summary = "Show Codex usage summaries from local Codex session files."
-runtime = "python3"
-entry = "codex_usage_range_report.py"
+runtime = "rust"
+entry = "crates/ut-codex-usage"
+dependencies = ["cargo"]
 default_behavior = "No arguments reports the current month."
+cost_default = "$40 = 1000 credits"
+cache = "Parsed log-file cache by content hash in the system temporary directory."
+profile_total = "Optional --profile-total accepts values like 18.4B to scale local-log results to a Codex Profile lifetime total."
 reads_private_data = true
 private_data_note = "Reads local Codex session logs. Output may include labels, paths, and working directories."

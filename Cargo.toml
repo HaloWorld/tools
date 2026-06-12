@@ -1,0 +1,7 @@
+[workspace]
+members = ["crates/ut-codex-usage", "crates/ut-list", "crates/ut-repo-snapshot", "apps/desktop/src-tauri"]
+resolver = "2"
+
+[profile.release]
+lto = true
+strip = true

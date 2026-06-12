@@ -1,0 +1,7 @@
+name = "Repo Snapshot"
+command = "ut-repo-snapshot"
+summary = "Show a privacy-safe Git repository status snapshot for the current directory."
+entry = "crates/ut-repo-snapshot"
+reads_private_data = false
+status = "ready"
+surface = "CLI + Desktop"

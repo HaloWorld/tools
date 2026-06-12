@@ -1,37 +1,47 @@
-#!/usr/bin/env sh
+#!/bin/sh
 set -eu
 
 repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-bin_dir="$repo_dir/bin"
+desktop_dir="$repo_dir/apps/desktop"
 
-if [ ! -d "$bin_dir" ]; then
-  echo "ERROR: missing bin directory: $bin_dir" >&2
+fail() {
+  echo "ERROR: $*" >&2
   exit 1
+}
+
+require_command() {
+  command -v "$1" >/dev/null 2>&1 || fail "required command not found: $1"
+}
+
+if [ "$(uname -s)" != "Darwin" ]; then
+  fail "Universal Tools desktop install currently supports macOS only"
 fi
 
-found=0
-for cmd in "$bin_dir"/ut-*; do
-  if [ -e "$cmd" ]; then
-    found=1
-    if [ ! -x "$cmd" ]; then
-      echo "ERROR: command is not executable: $cmd" >&2
-      exit 1
-    fi
-  fi
-done
+[ -d "$desktop_dir" ] || fail "missing desktop app directory: $desktop_dir"
+[ -f "$desktop_dir/package.json" ] || fail "missing desktop package.json"
 
-if [ "$found" -eq 0 ]; then
-  echo "ERROR: no ut-* commands found in $bin_dir" >&2
-  exit 1
+require_command cargo
+require_command npm
+require_command codesign
+require_command ditto
+
+echo "Preparing Universal Tools desktop app..."
+cd "$desktop_dir"
+
+if [ ! -d node_modules ]; then
+  echo "Installing desktop app dependencies..."
+  npm ci
 fi
 
-echo "tools is ready."
+echo "Building and verifying latest local app..."
+npm run release:local
+
+echo "Installing Universal Tools..."
+npm run install:local
+
 echo
-echo "Add this to Zsh:"
-echo "  export PATH=\"$bin_dir:\$PATH\""
+echo "Universal Tools is installed."
+echo "App: ${UT_LOCAL_INSTALL_DIR:-"$HOME/Applications"}/Universal Tools.app"
 echo
-echo "Or add this to Fish:"
-echo "  fish_add_path \"$bin_dir\""
-echo
-echo "Then open a new shell and type:"
-echo "  ut-<Tab>"
+echo "To install the optional shell commands as well, run:"
+echo "  UT_LINK_CLI=1 UT_LOCAL_BIN_DIR=\"\$HOME/.local/bin\" ./install"

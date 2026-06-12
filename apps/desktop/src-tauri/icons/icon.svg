@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Universal Tools">
+  <rect width="512" height="512" rx="112" fill="#070806"/>
+  <rect x="72" y="72" width="368" height="368" rx="92" fill="#0d0e0b" stroke="#302a16" stroke-width="4"/>
+  <path d="M145 354 210 158h69l-65 196h-69Z" fill="#f8bd1c"/>
+  <path d="M270 158h102v62h-34v134h-68V158Z" fill="#f8bd1c"/>
+  <path d="M214 354h124v-62H235l-21 62Z" fill="#ffd257"/>
+</svg>

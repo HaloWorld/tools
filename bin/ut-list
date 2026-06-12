@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+
+case "${1:-}" in
+  -h|--help)
+    echo "Usage:"
+    echo "  ut-list"
+    echo "  ut-list --json"
+    echo "  ut-list doctor"
+    echo "  ut-list doctor --json"
+    echo "  ut-list --version"
+    echo
+    echo "Lists installed Universal Tools commands with the ut- prefix."
+    exit 0
+    ;;
+esac
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+binary="$repo_dir/target/release/ut-list"
+
+if [ ! -x "$binary" ]; then
+  echo "ERROR: missing Rust binary. Run: $repo_dir/install" >&2
+  exit 1
+fi
+
+exec "$binary" "$@"
